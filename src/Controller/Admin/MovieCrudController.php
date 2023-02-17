@@ -23,9 +23,9 @@ class MovieCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
             TextField::new('title'),
-            DateTimeField::new('creation date'),
+            TextField::new('description'),
+            DateTimeField::new('creation_date'),
             /*BooleanField::new('is Online')*/
         ];
     }
