@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Conference Guestbook {% endblock %}
+{% block stylesheets %} <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}"> {% endblock %}
+
+{% block body %}
+
+    <h2> {{ movie.title }}</h2>
+    <div class="video">
+    <video controls width="50%">
+        <source src="{{ asset('assets/picture/film1.mp4') }}" type="video/mp4">
+    </video>
+    </div>
+
+    <h2>Description</h2>
+    <p>{{movie.description }}</p>
+    <hr>
+    <h2>Commentaires</h2>
+{% endblock %}

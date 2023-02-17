@@ -23,14 +23,13 @@ class Movie
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $creationDate = null;
 
-    #[ORM\OneToOne(inversedBy: 'movie', cascade: ['persist', 'remove'])]
+    /*#[ORM\OneToOne(inversedBy: 'movie', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?File $content = null;
 
     #[ORM\OneToOne(inversedBy: 'thumbnail', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?File $thumbail = null;
-
+    private ?File $thumbnail = null;*/
 
 
     public function getId(): ?int
@@ -73,7 +72,7 @@ class Movie
 
         return $this;
     }
-
+/*
     public function getContent(): ?File
     {
         return $this->content;
@@ -86,15 +85,15 @@ class Movie
         return $this;
     }
 
-    public function getThumbail(): ?File
+    public function getThumbnail(): ?File
     {
-        return $this->thumbail;
+        return $this->thumbnail;
     }
 
-    public function setThumbail(File $thumbail): self
+    public function setThumbnail(File $thumbnail): self
     {
-        $this->thumbail = $thumbail;
+        $this->thumbnail = $thumbnail;
 
         return $this;
-    }
+    }*/
 }

@@ -23,11 +23,11 @@ class File
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\OneToOne(mappedBy: 'content', cascade: ['persist', 'remove'])]
+    /*#[ORM\OneToOne(mappedBy: 'content', cascade: ['persist', 'remove'])]
     private ?Movie $movie = null;
 
-    #[ORM\OneToOne(mappedBy: 'thumbail', cascade: ['persist', 'remove'])]
-    private ?Movie $thumbnail = null;
+    #[ORM\OneToOne(mappedBy: 'thumbnail', cascade: ['persist', 'remove'])]
+    private ?Movie $thumbnail = null;*/
 
 
     public function getId(): ?int
@@ -68,7 +68,7 @@ class File
 
         return $this;
     }
-
+/*
     public function getMovie(): ?Movie
     {
         return $this->movie;
@@ -94,12 +94,12 @@ class File
     public function setThumbnail(Movie $thumbnail): self
     {
         // set the owning side of the relation if necessary
-        if ($thumbnail->getThumbail() !== $this) {
-            $thumbnail->setThumbail($this);
+        if ($thumbnail->getThumbnail() !== $this) {
+            $thumbnail->setThumbnail($this);
         }
 
         $this->thumbnail = $thumbnail;
 
         return $this;
-    }
+    }*/
 }

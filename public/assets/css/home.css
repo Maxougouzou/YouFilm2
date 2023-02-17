@@ -1,0 +1,27 @@
+.header {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5%;
+}
+
+.logo{
+    height:50px;
+}
+
+.card-movie{
+    display: flex;
+}
+.video{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+h1{
+    margin: 0;
+}
+
+body{
+    margin: 0;
+}

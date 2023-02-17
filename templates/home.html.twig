@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
+    <link   rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}"
+    {% endblock %}
+
+</head>
+<body>
+<div class="header">
+    <img src="{{asset('/assets/picture/Logo YouFilm3.png')}}" alt="Logo YouFilm" class="logo">
+    <div class="button">
+        <a href="{{ path('app_user_register') }}"><button class="btn btn-light">S'inscrire</button></a>
+        <a href="{{ path('app_user_login') }}"><button class="btn btn-light">Connexion</button></a>
+    </div>
+</div>
+
+<div class="card-movie">
+    {% for movie in movies %}
+
+        <div class="card me-0 m-3" style="width: 18rem;">
+            <img src="{{ asset('assets/picture/Logo YouFilm3.png') }}" class="card-img-top" alt="image">
+            <div class="card-body">
+                <h5 class="card-title">{{ movie.title }}</h5>
+                <p class="card-text">{{ movie.description }}</p>
+                <a href="{{ path('movie_show', { 'id': movie.id }) }}">Lire l'article</a>
+
+            </div>
+        </div>
+
+    {% endfor %}
+</div>
+
+</body>
+</html>
