@@ -25,7 +25,7 @@ class MovieCrudController extends AbstractCrudController
         return [
             IdField::new('id'),
             TextField::new('title'),
-            DateTimeField::new('creation date'),
+            DateTimeField::new('creationDate'),
             /*BooleanField::new('is Online')*/
         ];
     }

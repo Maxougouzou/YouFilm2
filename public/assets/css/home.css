@@ -9,7 +9,9 @@
 .logo{
     height:50px;
 }
-
+.button-create-comment{
+    display: flex;
+}
 .card-movie{
     display: flex;
 }

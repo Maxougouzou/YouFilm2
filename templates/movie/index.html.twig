@@ -1,19 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Conference Guestbook {% endblock %}
+{% block title %} {{ movie.title}} {% endblock %}
 {% block stylesheets %} <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}"> {% endblock %}
 
 {% block body %}
 
     <h2> {{ movie.title }}</h2>
     <div class="video">
-    <video controls width="50%">
-        <source src="{{ asset('assets/picture/film1.mp4') }}" type="video/mp4">
-    </video>
+        <video controls width="50%">
+            <source src="{{ asset('assets/picture/film1.mp4') }}" type="video/mp4">
+        </video>
     </div>
 
     <h2>Description</h2>
     <p>{{movie.description }}</p>
     <hr>
     <h2>Commentaires</h2>
+
+    <a href="{{ path('app_create_comment', {'id': movie.id}) }}">Ajouter un commentaire</a>
+
+    {% if comments is empty %}
+        <p>Pas de commentaires pour le moment.</p>
+    {% else %}
+
+            {% for comment in comments %}
+                <div class="card m-3" style="width: 50rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ comment.userId.username }}</h5>
+                        <p class="card-text">{{ comment.content }}</p>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+    {% endif %}
+
 {% endblock %}
