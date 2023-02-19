@@ -19,7 +19,7 @@ class ImageType extends AbstractType
             ->add('Image')
             ->add('CreationDate')
             ->add('file', FileType::class, [
-                'label' => 'Image (JPG, PNG or GIF file)',
+                'label' => 'Image (JPG ou PNG)',
                 'required' => true,
                 'constraints' => [
                     new File([
