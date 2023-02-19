@@ -6,6 +6,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Image;
 use App\Form\ImageType;
+
 class ImageUploadController extends AbstractController
 {
     #[Route('/uploadimage')]
@@ -16,14 +17,15 @@ class ImageUploadController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $file = $form->get('Image')->getData();
+            $imageFile = $form->get('file')->getData();
+
 
             // Generate a unique name for the file before saving it
-            $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+            $imageName = md5(uniqid()) . '.' . $imageFile->guessExtension();
 
             // Move the file to the directory where images are stored
             try {
-                $file->move(
+                $imageFile->move(
                     $this->getParameter('images_directory'),
                     $fileName
                 );
