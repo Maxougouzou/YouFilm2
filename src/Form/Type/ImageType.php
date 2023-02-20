@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\File;
+use DateTime;
 
 
 
@@ -16,8 +17,8 @@ class ImageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Image')
-            ->add('CreationDate')
+           // ->add('Image')
+            //->add('CreationDate')
             ->add('file', FileType::class, [
                 'label' => 'Image (JPG ou PNG)',
                 'required' => true,
@@ -28,7 +29,7 @@ class ImageType extends AbstractType
                             'image/jpeg',
                             'image/png',
                         ],
-                        'mimeTypesMessage' => 'Merci de choisir un fichier JPEG ou PNG uniquement.',
+                        'mimeTypesMessage' => 'Merci de choisir un fichier JPEG ou PNG uniquement ☺(5Mo maximum).',
                     ])
                 ],
             ])
