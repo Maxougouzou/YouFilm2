@@ -3,8 +3,16 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
+use Doctrine\ORM\EntityManagerInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -19,10 +27,61 @@ class UserCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
+            IdField::new('id')->hideOnForm(),
             TextField::new('username'),
             EmailField::new('email'),
+            BooleanField::new('isBanned')->onlyOnIndex(),
+            CollectionField::new('roles')
         ];
     }
+   /* public function configureActions(Actions $actions): Actions
+    {
+        $banUser = Action::new('banUser', "Bannir l'utilisateur")
+            ->linkToCrudAction('banUser')
+            ->displayIf(function (User $user) {
+                return !$user->getIsBanned();
+            });
 
+        $unbanUser = Action::new('unbanUser', "Débannir l'utilisateur")
+            ->linkToCrudAction('unbanUser')
+            ->displayIf(function (User $user) {
+                return $user->getIsBanned();
+            });
+
+        return $actions
+            ->add(Crud::PAGE_INDEX, $banUser)
+            ->add(Crud::PAGE_INDEX, $unbanUser);
+    }
+
+    public function banUser(AdminContext $context, EntityManagerInterface $entityManager)
+    {
+        $id = $context->getRequest()->query->get('entityId');
+        $user = $entityManager->getRepository(User::class)->find($id);
+        $user->setIsBanned(true);
+        //$user->setRoles(['ROLE_BANNED']);
+        $entityManager->flush();
+
+        $this->addFlash('success', sprintf('User %s has been banned', $user->getUsername()));
+
+        return $this->redirectToRoute('admin', [
+            'action' => 'index',
+            'entity' => $context->getEntity()->getName(),
+        ]);
+    }
+
+    public function unbanUser(AdminContext $context, EntityManagerInterface $entityManager)
+    {
+        $id = $context->getRequest()->query->get('entityId');
+        $user = $entityManager->getRepository(User::class)->find($id);
+        $use    r->setIsBanned(false);
+        $entityManager ->flush();
+
+
+        $this->addFlash('success', sprintf('User %s has been unbanned', $user->getUsername()));
+
+        return $this->redirectToRoute('admin', [
+            'action' => 'index',
+            'entity' => $context->getEntity()->getName(),
+        ]);
+    }*/
 }

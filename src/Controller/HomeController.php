@@ -20,13 +20,6 @@ class HomeController extends AbstractController
         ]);
     }
 
-    public function show($id , EntityManagerInterface $entityManager)
-    {
-        $movie = $entityManager->getRepository(Movie::class)->find($id);
 
-        return $this->render('movie/index.html.twig', [
-            'movie' => $movie,
-        ]);
-    }
 
 }

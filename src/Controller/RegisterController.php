@@ -23,7 +23,7 @@ class RegisterController extends AbstractController
         if($form->isSubmitted()&&$form->isValid()){
             $user=$form->getData();
             $user->setPassword($hasher->hashPassword($user, $user->getPlainPassword()));
-            $user->setStatus('member');
+            $user->setIsBanned(false);
 
             $entityManager->persist($user);
             $entityManager->flush();
@@ -31,7 +31,7 @@ class RegisterController extends AbstractController
             return $this->redirect('/login');
         }
 
-        return $this->render('login.html.twig', array ('form'=>$form->createView()));
+        return $this->render('register.html.twig', array ('form'=>$form->createView()));
     }
 
 

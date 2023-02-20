@@ -1,5 +1,5 @@
 .header {
-    background-color: black;
+    background-color: #1e293b;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,8 +8,11 @@
 
 .logo{
     height:50px;
+    justify-content: center;
 }
-
+.button-create-comment{
+    display: flex;
+}
 .card-movie{
     display: flex;
 }
@@ -24,4 +27,5 @@ h1{
 
 body{
     margin: 0;
+    /*background-color: #4A4759;*/
 }

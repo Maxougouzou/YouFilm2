@@ -25,7 +25,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
 
     #[ORM\Column(length: 255)]
-    private ?string $status = null;
+    private ?bool $isBanned = null;
 
 
     #[ORM\Column(length: 255)]
@@ -63,14 +63,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getStatus(): ?string
+    public function getIsBanned(): ?string
     {
-        return $this->status;
+        return $this->isBanned;
     }
 
-    public function setStatus(string $status): self
+    public function setIsBanned(string $isBanned): self
     {
-        $this->status = $status;
+        $this->isBanned = $isBanned;
 
         return $this;
     }
