@@ -1,0 +1,37 @@
+.logo-login{
+    height: 50px;
+}
+
+.header-login{
+    background-color: #212429;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5%;
+}
+
+.content-login{
+    text-align: center;
+}
+
+.login-form{
+    border: 1px solid #212429;
+    border-radius: 10px;
+    width: 20rem;
+    height: 3rem;
+    margin: 0.5%;
+
+}
+.submit-button{
+    background-color: #212429;
+    color: white;
+}
+
+.login-text{
+    font-weight: lighter;
+}
+
+.login-title{
+    font-weight: bold;
+    margin: 2% 0.5% 0.5%;
+}
