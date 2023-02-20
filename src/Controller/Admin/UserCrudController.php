@@ -34,7 +34,7 @@ class UserCrudController extends AbstractCrudController
             CollectionField::new('roles')
         ];
     }
-   /* public function configureActions(Actions $actions): Actions
+   public function configureActions(Actions $actions): Actions
     {
         $banUser = Action::new('banUser', "Bannir l'utilisateur")
             ->linkToCrudAction('banUser')
@@ -58,10 +58,9 @@ class UserCrudController extends AbstractCrudController
         $id = $context->getRequest()->query->get('entityId');
         $user = $entityManager->getRepository(User::class)->find($id);
         $user->setIsBanned(true);
-        //$user->setRoles(['ROLE_BANNED']);
         $entityManager->flush();
 
-        $this->addFlash('success', sprintf('User %s has been banned', $user->getUsername()));
+        $this->addFlash('success', sprintf("L'utilisateur %s a été banni ", $user->getUsername()));
 
         return $this->redirectToRoute('admin', [
             'action' => 'index',
@@ -73,15 +72,15 @@ class UserCrudController extends AbstractCrudController
     {
         $id = $context->getRequest()->query->get('entityId');
         $user = $entityManager->getRepository(User::class)->find($id);
-        $use    r->setIsBanned(false);
+        $user->setIsBanned(false);
         $entityManager ->flush();
 
 
-        $this->addFlash('success', sprintf('User %s has been unbanned', $user->getUsername()));
+        $this->addFlash('success', sprintf("L'utilisateur %s a été débanni", $user->getUsername()));
 
         return $this->redirectToRoute('admin', [
             'action' => 'index',
             'entity' => $context->getEntity()->getName(),
         ]);
-    }*/
+    }
 }

@@ -23,13 +23,9 @@ class Movie
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $creationDate = null;
 
-    /*#[ORM\OneToOne(inversedBy: 'movie', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?File $content = null;
-
-    #[ORM\OneToOne(inversedBy: 'thumbnail', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?File $thumbnail = null;*/
+    #[ORM\ManyToOne(inversedBy: 'movie')]
+    #[ORM\JoinColumn(nullable: true)]
+    private ?Category $category = null;
 
 
     public function getId(): ?int
@@ -96,4 +92,16 @@ class Movie
 
         return $this;
     }*/
+
+public function getCategory(): ?Category
+{
+    return $this->category;
+}
+
+public function setCategory(?Category $category): self
+{
+    $this->category = $category;
+
+    return $this;
+}
 }

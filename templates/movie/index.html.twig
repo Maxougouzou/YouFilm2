@@ -20,6 +20,12 @@
 
     {% if app.user is not null %}
 
+        {% if app.user.isBanned == true %}
+
+            <h1> vous êtes ban </h1>
+
+            {% else %}
+
         <h2>Commentaires</h2>
 
         <a href="{{ path('app_create_comment', {'id': movie.id}) }}">Ajouter un commentaire</a>
@@ -40,10 +46,14 @@
 
         {% endif %}
 
+        {% endif %}
+
+
     {% else %}
 
         <h2>Connectez vous pour voir les commentaires</h2>
 
     {% endif %}
+
 
 {% endblock %}
