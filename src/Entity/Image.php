@@ -15,10 +15,12 @@ class Image
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Image = null;
+    private ?string $image = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $CreationDate = null;
+    private ?\DateTimeInterface $creationDate = null;
+
+    private ?\Symfony\Component\HttpFoundation\File\File $file = null;
 
     public function getId(): ?int
     {
@@ -27,24 +29,36 @@ class Image
 
     public function getImage(): ?string
     {
-        return $this->Image;
+        return $this->image;
     }
 
-    public function setImage(string $Image): self
+    public function setImage(string $image): self
     {
-        $this->Image = $Image;
+        $this->image = $image;
 
         return $this;
     }
 
     public function getCreationDate(): ?\DateTimeInterface
     {
-        return $this->CreationDate;
+        return $this->creationDate;
     }
 
-    public function setCreationDate(\DateTimeInterface $CreationDate): self
+    public function setCreationDate(\DateTimeInterface $creationDate): self
     {
-        $this->CreationDate = $CreationDate;
+        $this->creationDate = $creationDate;
+
+        return $this;
+    }
+
+    public function getFile(): ?\Symfony\Component\HttpFoundation\File\File
+    {
+        return $this->file;
+    }
+
+    public function setFile(?\Symfony\Component\HttpFoundation\File\File $file): self
+    {
+        $this->file = $file;
 
         return $this;
     }

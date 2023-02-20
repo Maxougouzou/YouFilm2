@@ -7,9 +7,11 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Validator\Constraints\File;
 
 
-class ImageFormType extends AbstractType
+
+class ImageType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -17,7 +19,7 @@ class ImageFormType extends AbstractType
             ->add('Image')
             ->add('CreationDate')
             ->add('file', FileType::class, [
-                'label' => 'Image (JPG, PNG or GIF file)',
+                'label' => 'Image (JPG ou PNG)',
                 'required' => true,
                 'constraints' => [
                     new File([
