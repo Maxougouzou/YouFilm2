@@ -8,7 +8,7 @@
     <title>Home</title>
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
-    <link   rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}"
+        <link   rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}"
     {% endblock %}
 
 </head>
@@ -16,55 +16,69 @@
 
 {% if app.user is not null %}
 
-<div class="header">
-    <img src="{{asset('/assets/picture/Logo YouFilm Blanx.png')}}" alt="Logo YouFilm" class="logo">
+    <div class="header">
+        <img src="{{asset('/assets/picture/Logo YouFilm Blanx.png')}}" alt="Logo YouFilm" class="logo">
 
-    <div class="button">
-        <a href="{{ path('app_user_logout') }}"><button class="btn btn-light">Déconnexion</button></a>
-    </div>
-</div>
-
-<div class="card-movie">
-    {% for movie in movies %}
-
-        <div class="card me-0 m-3" style="width: 18rem;">
-            <img src="{{ asset('assets/picture/Logo YouFilm3.png') }}" class="card-img-top" alt="image">
-            <div class="card-body">
-                <h5 class="card-title">{{ movie.title }}</h5>
-                <p class="card-text">{{ movie.description }}</p>
-                <a href="{{ path('movie_show', { 'id': movie.id }) }}">Lire l'article</a>
-
-            </div>
+        <div class="button">
+            <a href="{{ path('app_user_logout') }}"><button class="btn btn-light">Déconnexion</button></a>
         </div>
+    </div>
 
-    {% endfor %}
-</div>
+    <div class="card-movie">
+        {% for movie in movies %}
+
+            <div class="card me-0 m-3" style="width: 18rem;">
+                <img src="{{ asset('images/9f945248a60c05e70a2fffb57b292794.jpg') }}" class="card-img-top" alt="image">
+                <div class="card-body">
+                    <h5 class="card-title">{{ movie.title }}</h5>
+                    <p class="card-text">{{ movie.description }}</p>
+                    <a href="{{ path('movie_show', { 'id': movie.id }) }}">Lire l'article</a>
+
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+
+    <h2> Catégories</h2>
+
+    <div class="d-flex align-items-center overflow-auto oui">
+        <div class="card-group flex-nowrap">
+            {% for categorie in category %}
+                <a href="{{ path('app_category', { 'name': categorie.name }) }}"><div class="card d-flex justify-content-center align-items-center m-4" style="width: 18rem; height: 10rem;">
+                        <h2>{{ categorie.name }}</h2>
+                    </div></a>
+            {% endfor %}
+        </div>
+    </div>
+
 
 {% else %}
-<div class="header">
-    <img src="{{asset('/assets/picture/Logo YouFilm Blanx.png')}}" alt="Logo YouFilm" class="logo">
 
-    <div class="button">
-        <a href="{{ path('app_user_register') }}"><button class="btn btn-light">S'inscrire</button></a>
-        <a href="{{ path('app_user_login') }}"><button class="btn btn-light">Connexion</button></a>
-    </div>
-</div>
+    <div class="header">
+        <img src="{{asset('/assets/picture/Logo YouFilm Blanx.png')}}" alt="Logo YouFilm" class="logo">
 
-<div class="card-movie">
-    {% for movie in movies %}
-
-        <div class="card me-0 m-3" style="width: 18rem;">
-            <img src="{{ asset('assets/picture/Logo YouFilm3.png') }}" class="card-img-top" alt="image">
-            <div class="card-body">
-                <h5 class="card-title">{{ movie.title }}</h5>
-                <p class="card-text">{{ movie.description }}</p>
-                <a href="{{ path('movie_show', { 'id': movie.id }) }}">Lire l'article</a>
-
-            </div>
+        <div class="button">
+            <a href="{{ path('app_user_register') }}"><button class="btn btn-light">S'inscrire</button></a>
+            <a href="{{ path('app_user_login') }}"><button class="btn btn-light">Connexion</button></a>
         </div>
+    </div>
 
-    {% endfor %}
-</div>
+    <div class="card-movie">
+        {% for movie in movies %}
+
+            <div class="card me-0 m-3" style="width: 18rem;">
+                <img src="{{ asset('assets/picture/Logo YouFilm3.png') }}" class="card-img-top" alt="image">
+                <div class="card-body">
+                    <h5 class="card-title">{{ movie.title }}</h5>
+                    <p class="card-text">{{ movie.description }}</p>
+                    <a href="{{ path('movie_show', { 'id': movie.id }) }}">Lire l'article</a>
+
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
 
 {% endif %}
 

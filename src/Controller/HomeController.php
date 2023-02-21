@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Movie;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,9 +15,11 @@ class HomeController extends AbstractController
     {
 
         $movies = $entityManager->getRepository(Movie::class)->findAll();
+        $category = $entityManager->getRepository(Category::class)->findAll();
 
         return $this->render('home.html.twig', [
             'movies' => $movies,
+            'category'=> $category,
         ]);
     }
 
