@@ -19,27 +19,8 @@
     <div class="header">
         <img src="{{asset('/assets/picture/Logo YouFilm Blanx.png')}}" alt="Logo YouFilm" class="logo">
 
-<<<<<<< Updated upstream
         <div class="button">
             <a href="{{ path('app_user_logout') }}"><button class="btn btn-light">Déconnexion</button></a>
-=======
-    <div class="button">
-        <a href="{{ path('app_user_logout') }}"><button class="btn btn-light">Déconnexion</button></a>
-    </div>
-</div>
-
-<div class="card-movie">
-    {% for movie in movies %}
-
-        <div class="card me-0 m-3" style="width: 18rem;">
-            <img src="/images/{{ movie.thumbnail }}" class="card-img-top" alt="image">
-            <div class="card-body">
-                <h5 class="card-title">{{ movie.title }}</h5>
-                <p class="card-text">{{ movie.description }}</p>
-                <a href="{{ path('movie_show', { 'id': movie.id }) }}">Lire l'article</a>
-
-            </div>
->>>>>>> Stashed changes
         </div>
     </div>
 
@@ -47,7 +28,7 @@
         {% for movie in movies %}
 
             <div class="card me-0 m-3" style="width: 18rem;">
-                <img src="{{ asset('images/9f945248a60c05e70a2fffb57b292794.jpg') }}" class="card-img-top" alt="image">
+                <img src="/images/{{ movie.thumbnail }}" class="card-img-top" alt="image">
                 <div class="card-body">
                     <h5 class="card-title">{{ movie.title }}</h5>
                     <p class="card-text">{{ movie.description }}</p>
@@ -72,26 +53,7 @@
     </div>
 
 
-    <h2> Catégories</h2>
-
-    <div class="d-flex align-items-center overflow-auto oui">
-        <div class="card-group flex-nowrap">
-            {% for categorie in category %}
-                <a href="{{ path('app_category', { 'name': categorie.name }) }}"><div class="card d-flex justify-content-center align-items-center m-4" style="width: 18rem; height: 10rem;">
-                    <h2>{{ categorie.name }}</h2>
-                </div></a>
-            {% endfor %}
-        </div>
-    </div>
-
-
 {% else %}
-<<<<<<< Updated upstream
-=======
-
-<div class="header">
-    <img src="{{asset('/assets/picture/Logo YouFilm Blanx.png')}}" alt="Logo YouFilm" class="logo">
->>>>>>> Stashed changes
 
     <div class="header">
         <img src="{{asset('/assets/picture/Logo YouFilm Blanx.png')}}" alt="Logo YouFilm" class="logo">
