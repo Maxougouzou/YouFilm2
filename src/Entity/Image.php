@@ -22,6 +22,10 @@ class Image
 
     private ?\Symfony\Component\HttpFoundation\File\File $file = null;
 
+    /*#[ORM\ManyToOne(inversedBy: 'images')]
+    private ?Movie $movie = null;
+*/
+
     public function getId(): ?int
     {
         return $this->id;
@@ -62,4 +66,17 @@ class Image
 
         return $this;
     }
+/*
+    public function getMovie(): ?Movie
+    {
+        return $this->movie;
+    }
+
+    public function setMovie(?Movie $movie): self
+    {
+        $this->movie = $movie;
+
+        return $this;
+    }
+*/
 }

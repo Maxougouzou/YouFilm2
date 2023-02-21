@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\MovieRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -26,6 +28,17 @@ class Movie
     #[ORM\ManyToOne(inversedBy: 'movie')]
     #[ORM\JoinColumn(nullable: true)]
     private ?Category $category = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $thumbnail = null;
+
+    /*#[ORM\OneToMany(mappedBy: 'movie', targetEntity: Image::class)]
+    private Collection $images;*/
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -68,30 +81,7 @@ class Movie
 
         return $this;
     }
-/*
-    public function getContent(): ?File
-    {
-        return $this->content;
-    }
 
-    public function setContent(File $content): self
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    public function getThumbnail(): ?File
-    {
-        return $this->thumbnail;
-    }
-
-    public function setThumbnail(File $thumbnail): self
-    {
-        $this->thumbnail = $thumbnail;
-
-        return $this;
-    }*/
 
 public function getCategory(): ?Category
 {
@@ -101,6 +91,45 @@ public function getCategory(): ?Category
 public function setCategory(?Category $category): self
 {
     $this->category = $category;
+
+    return $this;
+}
+/*
+public function getImages(): Collection
+{
+    return $this->images;
+}
+
+public function addImage(Image $image): self
+{
+    if (!$this->images->contains($image)) {
+        $this->images->add($image);
+        $image->setMovie($this);
+    }
+
+    return $this;
+}
+
+public function removeImage(Image $image): self
+{
+    if ($this->images->removeElement($image)) {
+        // set the owning side to null (unless already changed)
+        if ($image->getMovie() === $this) {
+            $image->setMovie(null);
+        }
+    }
+
+    return $this;
+}*/
+
+public function getThumbnail(): ?string
+{
+    return $this->thumbnail;
+}
+
+public function setThumbnail(string $thumbnail): self
+{
+    $this->thumbnail = $thumbnail;
 
     return $this;
 }

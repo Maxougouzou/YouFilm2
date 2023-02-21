@@ -5,6 +5,7 @@
 
     <h1>{{ category.name }}</h1>
 
+<<<<<<< Updated upstream
     {% for movie in movies |filter(movie=> movie.category.name == category.name) %}
 
         <div class="card me-0 m-3" style="width: 18rem;">
@@ -17,5 +18,19 @@
             </div>
         </div>
     {% endfor %}
+=======
+ {% for movie in movies |filter(movie=> movie.category.name == category.name) %}
+
+     <div class="card me-0 m-3" style="width: 18rem;">
+     <img src="{{ asset('assets/picture/Logo YouFilm3.png') }}" class="card-img-top" alt="image">
+     <div class="card-body">
+         <h5 class="card-title">{{ movie.title }}</h5>
+         <p class="card-text">{{ movie.description }}</p>
+         <a href="{{ path('movie_show', { 'id': movie.id }) }}">Lire l'article</a>
+
+     </div>
+ </div>
+{% endfor %}
+>>>>>>> Stashed changes
 
 {% endblock %}
