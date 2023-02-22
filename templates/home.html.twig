@@ -8,76 +8,98 @@
     <title>Home</title>
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
-        <link   rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}"
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     {% endblock %}
 
 </head>
 <body>
 
+{# Utilisateur connecté #}
+
 {% if app.user is not null %}
 
     <div class="header">
-        <img src="{{asset('/assets/picture/Logo YouFilm Blanx.png')}}" alt="Logo YouFilm" class="logo">
+        <img src="{{ asset('/assets/picture/Logo YouFilm Blanx.png') }}" alt="Logo YouFilm" class="logo">
 
         <div class="button">
-            <a href="{{ path('app_user_logout') }}"><button class="btn btn-light">Déconnexion</button></a>
+            <a href="{{ path('app_user_logout') }}">
+                <button class="btn btn-light">Déconnexion</button>
+            </a>
         </div>
     </div>
 
     <div class="card-movie">
         {% for movie in movies %}
 
-            <div class="card me-0 m-3" style="width: 18rem;">
-                <img src="/images/{{ movie.thumbnail }}" class="card-img-top" alt="image">
-                <div class="card-body">
-                    <h5 class="card-title">{{ movie.title }}</h5>
-                    <p class="card-text">{{ movie.description }}</p>
-                    <a href="{{ path('movie_show', { 'id': movie.id }) }}">Lire l'article</a>
-
+            <a href="{{ path('movie_show', { 'id': movie.id }) }} " class="text-decoration-none movie_list">
+                <div class="m-3 me-2 ms-2">
+                    <img src="/images/{{ movie.thumbnail }}" class="card-img-top movie_thumbnail" alt="miniature film">
                 </div>
-            </div>
+            </a>
 
         {% endfor %}d
     </div>
 
-    <h2> Catégories</h2>
+    <div class="category">
+        <h2> Catégories : </h2>
+    </div>
 
     <div class="d-flex align-items-center overflow-auto oui">
         <div class="card-group flex-nowrap">
             {% for categorie in category %}
-                <a href="{{ path('app_category', { 'name': categorie.name }) }}"><div class="card d-flex justify-content-center align-items-center m-4" style="width: 18rem; height: 10rem;">
+                <a href="{{ path('app_category', { 'name': categorie.name }) }}">
+                    <div class="card d-flex justify-content-center align-items-center m-4"
+                         style="width: 18rem; height: 10rem;">
                         <h2>{{ categorie.name }}</h2>
-                    </div></a>
+                    </div>
+                </a>
             {% endfor %}
         </div>
     </div>
 
 
-{% else %}
+{% else %} {# Utilisateur non-connecté #}
 
     <div class="header">
-        <img src="{{asset('/assets/picture/Logo YouFilm Blanx.png')}}" alt="Logo YouFilm" class="logo">
+        <img src="{{ asset('/assets/picture/Logo YouFilm Blanx.png') }}" alt="Logo YouFilm" class="logo">
 
         <div class="button">
-            <a href="{{ path('app_user_register') }}"><button class="btn btn-light">S'inscrire</button></a>
-            <a href="{{ path('app_user_login') }}"><button class="btn btn-light">Connexion</button></a>
+            <a href="{{ path('app_user_login') }}">
+                <button class="btn btn-light">Connexion</button>
+            </a>
+            <a href="{{ path('app_user_register') }}">
+                <button class="btn btn-light">Inscription</button>
+            </a>
         </div>
     </div>
 
     <div class="card-movie">
         {% for movie in movies %}
 
-            <div class="card me-0 m-3" style="width: 18rem;">
-                <img src="{{ asset('assets/picture/Logo YouFilm3.png') }}" class="card-img-top" alt="image">
-                <div class="card-body">
-                    <h5 class="card-title">{{ movie.title }}</h5>
-                    <p class="card-text">{{ movie.description }}</p>
-                    <a href="{{ path('movie_show', { 'id': movie.id }) }}">Lire l'article</a>
-
+            <a href="{{ path('movie_show', { 'id': movie.id }) }} " class="text-decoration-none movie_list">
+                <div class="m-3 me-2 ms-2">
+                    <img src="/images/{{ movie.thumbnail }}" class="card-img-top movie_thumbnail" alt="miniature film">
                 </div>
-            </div>
+            </a>
 
         {% endfor %}
+    </div>
+
+    <div class="category">
+        <h2> Catégories : </h2>
+    </div>
+
+    <div class="d-flex align-items-center overflow-auto oui">
+        <div class="card-group flex-nowrap">
+            {% for categorie in category %}
+                <a href="{{ path('app_category', { 'name': categorie.name }) }}">
+                    <div class="card d-flex justify-content-center align-items-center m-4"
+                         style="width: 18rem; height: 10rem;">
+                        <h2>{{ categorie.name }}</h2>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
     </div>
 
 {% endif %}

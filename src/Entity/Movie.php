@@ -32,8 +32,9 @@ class Movie
     #[ORM\Column(length: 255)]
     private ?string $thumbnail = null;
 
-    /*#[ORM\OneToMany(mappedBy: 'movie', targetEntity: Image::class)]
-    private Collection $images;*/
+    #[ORM\Column(length: 255)]
+    private ?string $video = null;
+
 
     public function __construct()
     {
@@ -130,6 +131,18 @@ public function getThumbnail(): ?string
 public function setThumbnail(string $thumbnail): self
 {
     $this->thumbnail = $thumbnail;
+
+    return $this;
+}
+
+public function getVideo(): ?string
+{
+    return $this->video;
+}
+
+public function setVideo(string $video): self
+{
+    $this->video = $video;
 
     return $this;
 }

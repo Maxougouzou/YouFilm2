@@ -15,6 +15,24 @@
 }
 .card-movie{
     display: flex;
+    margin: 1rem 2rem;
+}
+
+.movie_thumbnail{
+    height: 20rem;
+    width: 8rem;
+    object-fit: cover;
+}
+
+.movie_list{
+    width: 15rem;
+}
+.category{
+    margin-left: 2rem ;
+}
+
+a{
+    text-decoration: none;
 }
 .video{
     display: flex;
