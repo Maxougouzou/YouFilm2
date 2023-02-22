@@ -2,37 +2,69 @@
 
 {% block title %} {{ movie.title }} {% endblock %}
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/movie.css') }}">
 {% endblock %}
 
 {% block body %}
 
-    <h2> {{ movie.title }}</h2>
+    <div class="header">
+
+        <img src="{{ asset('/assets/picture/Logo YouFilm Blanx.png') }}" alt="Logo YouFilm" class="logo">
+
+        {% if app.user is not null %} {# Affichage header utilisateur connecté #}
+
+        <a href="{{ path('app_user_logout') }}">
+            <button class="btn btn-light">Déconnexion</button>
+        </a>
+
+        {% else %} {# Affichage header utilisateur non-connecté #}
+
+        <div class="button">
+            <a href="{{ path('app_user_login') }}">
+                <button class="btn btn-light">Connexion</button>
+            </a>
+            <a href="{{ path('app_user_register') }}">
+                <button class="btn btn-light">Inscription</button>
+            </a>
+        </div>
+
+        {% endif %}
+
+    </div>
+
+    <h2 class="movie-title">{{movie.title}}</h2>
+
     <div class="video">
         <video controls width="50%">
-            <source src="{{ asset('assets/picture/film1.mp4') }}" type="video/mp4">
+            <source src="/images/{{movie.video}}" type="video/mp4">
         </video>
     </div>
 
-    <h2>Description</h2>
-    <p>{{ movie.description }}</p>
+    <h2 class="movie-description-title">Description</h2>
+    <p class="movie-description">{{movie.description}}</p>
     <hr>
 
-    {% if app.user is not null %}
+    {% if app.user is not null %} {# Affichage utilisateur connecté #}
 
-        {% if app.user.isBanned == true %}
+        {% if app.user.isBanned == true %} {# Affichage utilisateur banni #}
 
-            <h1> vous êtes ban </h1>
+            <h1 class="comment-ban" > vous êtes ban </h1>
 
-            {% else %}
+            {% else %} {# Affichage utilisateur normal #}
 
-        <h2>Commentaires</h2>
+        <div class="div-comment">
 
-        <a href="{{ path('app_create_comment', {'id': movie.id}) }}">Ajouter un commentaire</a>
+        <h2 class="comment-title">Commentaires</h2>
 
-        {% if comments is empty %}
-            <p>Pas de commentaires pour le moment.</p>
-        {% else %}
+            <a href="{{ path('app_create_comment', {'id': movie.id}) }}" class="add-comment"><button class="btn btn-light comment-button">Ajouter un commentaire</button></a>
+
+        </div>
+
+        {% if comments is empty %} {# Affichage pas de commentaire #}
+
+            <p class="no-comment">Pas de commentaires pour le moment.</p>
+
+        {% else %} {# Affichage des commentaires #}
 
             {% for comment in comments %}
                 <div class="card m-3" style="width: 50rem;">
@@ -49,7 +81,7 @@
         {% endif %}
 
 
-    {% else %}
+    {% else %} {# Affichage utilisateur non-connecté #}
 
         <h2>Connectez vous pour voir les commentaires</h2>
 

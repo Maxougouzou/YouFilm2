@@ -31,8 +31,10 @@ class MovieCrudController extends AbstractCrudController
                 ->setFormTypeOption('choice_label', 'name'),
             ImageField::new('thumbnail')
                 ->setBasePath('images/')
+                ->setUploadDir('public/images'),
+            ImageField::new('video')
+                ->setBasePath('images/')
                 ->setUploadDir('public/images')
-           //ImageField::new('images')->setUploadDir('public/assets/picture')
         ];
     }
 

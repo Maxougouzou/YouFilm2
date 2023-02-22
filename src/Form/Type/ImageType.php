@@ -22,12 +22,7 @@ class ImageType extends AbstractType
                 'required' => true,
                 'constraints' => [
                     new File([
-                        'maxSize' => '5M',
-                        'mimeTypes' => [
-                            'image/jpeg',
-                            'image/png',
-                        ],
-                        'mimeTypesMessage' => 'Merci de choisir un fichier JPEG ou PNG uniquement ☺(5Mo maximum).',
+                        'maxSize' => '2G',
                     ])
                 ],
             ])
