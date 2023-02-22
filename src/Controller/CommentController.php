@@ -37,6 +37,7 @@ class CommentController extends AbstractController
         return $this->render('comment/comment.html.twig', [
             'movie' => $movie,
             'form' => $form->createView(),
+
         ]);
 
     }}
