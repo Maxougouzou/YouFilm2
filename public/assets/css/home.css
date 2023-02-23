@@ -67,4 +67,8 @@ h2{
 
 .card{
     background-color: #ff0000;
+    font-weight: bold;
+}
+.btn-danger {
+    --bs-btn-bg: #ff0000;
 }
