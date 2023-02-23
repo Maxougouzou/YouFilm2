@@ -38,6 +38,8 @@
 }
 
 
+/* Commentaires */
+
 
 .div-comment{
     display: flex;
@@ -45,9 +47,15 @@
 }
 
 .no-comment{
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-top: 1rem;
+    margin-left: 2rem;
+}
+
+.comment-offline{
+    margin-left: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke;
 }
 
 .add-comment{
@@ -56,17 +64,46 @@
 }
 
 .comment-button{
-    background-color: #1e293b;
     color: white;
+    border-radius: 0;
 }
 
 .comment-title{
     margin-left: 2rem;
     margin-top: 1rem;
+    color: whitesmoke;
+}
+
+.card-comment {
+    border-radius: 0;
+    background-color: #121212;
+    color: whitesmoke;
+    margin: 2rem;
 }
 
 .comment-ban{
+    margin-left: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke;
+}
 
+.comment-ban-text{
+    margin-left: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke;
+    font-weight: lighter;
+}
+
+.card-comment-username{
+    font-weight: bold;
+}
+
+.card-comment-content{
+    font-weight: lighter;
 }
 
 .header {
@@ -82,6 +119,7 @@
 .logo{
     height:50px;
     justify-content: center;
+    margin-left: 1rem;
 }
 
 .video{
@@ -94,6 +132,15 @@
 .video-player{
     margin-top: 5rem;
     margin-bottom: 5rem;
+}
+
+.button{
+        border-radius: 0;
+        color: whitesmoke;
+}
+
+.button-header{
+    margin-right: 1rem;
 }
 
 body{

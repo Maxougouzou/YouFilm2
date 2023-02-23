@@ -13,18 +13,20 @@
 
         {% if app.user is not null %} {# Affichage header utilisateur connecté #}
 
-            <a href="{{ path('app_user_logout') }}">
-                <button class="btn btn-light">Déconnexion</button>
-            </a>
+            <div class="button-header">
+                <a href="{{ path('app_user_logout') }}">
+                    <button class="btn btn-danger button">Déconnexion</button>
+                </a>
+            </div>
 
         {% else %} {# Affichage header utilisateur non-connecté #}
 
-            <div class="button">
+            <div class="button-header">
                 <a href="{{ path('app_user_login') }}">
-                    <button class="btn btn-light">Connexion</button>
+                    <button class="btn btn-danger button">Connexion</button>
                 </a>
                 <a href="{{ path('app_user_register') }}">
-                    <button class="btn btn-light">Inscription</button>
+                    <button class="btn btn-danger button">Inscription</button>
                 </a>
             </div>
 
@@ -36,7 +38,8 @@
         <div style="width: 50%" class="div-gauche">
             <div class="d-flex align-items-center div-title-movie">
                 <h2 class="movie-title">{{ movie.title }}</h2>
-                <button class="btn btn-danger button-category"><p class="movie-category-name">{{ movie.category.name }}</p></button>
+                <button class="btn btn-danger button-category"><p
+                            class="movie-category-name">{{ movie.category.name }}</p></button>
             </div>
             <h4 class="movie-description-title">Description</h4>
             <p class="movie-description">{{ movie.description }}</p>
@@ -57,7 +60,8 @@
 
         {% if app.user.isBanned == true %} {# Affichage utilisateur banni #}
 
-            <h1 class="comment-ban"> vous êtes ban </h1>
+            <h1 class="comment-ban"> Vous êtes ban </h1>
+            <p class="comment-ban-text">En raison de votre violation des règles, l'accès à la fonctionnalité de commentaires vous a été retiré.</p>
 
         {% else %} {# Affichage utilisateur normal #}
 
@@ -66,7 +70,7 @@
                 <h2 class="comment-title">Commentaires</h2>
 
                 <a href="{{ path('app_create_comment', {'id': movie.id}) }}" class="add-comment">
-                    <button class="btn btn-light comment-button">Ajouter un commentaire</button>
+                    <button class="btn btn-danger comment-button">Ajouter un commentaire</button>
                 </a>
 
             </div>
@@ -75,15 +79,18 @@
 
                 <p class="no-comment">Pas de commentaires pour le moment.</p>
 
+
             {% else %} {# Affichage des commentaires #}
 
                 {% for comment in comments %}
-                    <div class="card m-3" style="width: 50rem;">
+                    <div class="card-comment" style="width: 50rem;">
                         <div class="card-body">
-                            <h5 class="card-title">{{ comment.userId.username }}</h5>
+                            <h5 class="card-comment-username">{{ comment.userId.username }}</h5>
                             <p class="card-text">{{ comment.content }}</p>
+                            <hr>
                         </div>
                     </div>
+
 
                 {% endfor %}
 
@@ -93,9 +100,14 @@
 
 
     {% else %} {# Affichage utilisateur non-connecté #}
-
-        <h2>Connectez vous pour voir les commentaires</h2>
-
+        <div class="comment-offline">
+            <h2>Connectez vous pour voir les commentaires</h2>
+        </div>
+        <div class="comment-offline">
+            <a href="{{ path('app_user_login') }}">
+                <button class="btn btn-danger button">Connexion</button>
+            </a>
+        </div>
     {% endif %}
 
 
