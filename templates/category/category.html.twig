@@ -5,9 +5,44 @@
 
 {% block body %}
 
-    <h1>{{ category.name }}</h1>
+    {# Utilisateur connecté #}
 
-    {% for movie in movies |filter(movie=> movie.category.name == category.name) %}
+    {% if app.user is not null %}
+
+        <div class="header">
+            <img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}" alt="Logo YouFilm" class="logo">
+
+            <div class="button-header">
+                <a href="{{ path('app_user_logout') }}">
+                    <button class="btn btn-danger button">Déconnexion</button>
+                </a>
+            </div>
+        </div>
+
+    {% else %} {# Utilisateur non-connecté #}
+
+        <div class="header">
+            <img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}" alt="Logo YouFilm" class="logo">
+
+            <div class="button-header">
+                <a href="{{ path('app_user_login') }}">
+                    <button class="btn btn-danger button">Connexion</button>
+                </a>
+                <a href="{{ path('app_user_register') }}">
+                    <button class="btn btn-danger button">Inscription</button>
+                </a>
+            </div>
+        </div>
+
+    {% endif %}
+
+    <div class="div-header">
+        <img src="{{ asset('assets/picture/header.jpg') }}" class="div-header-image" alt="image"><div class="div-header-content">
+            <h2 class="div-header-text"> {{ category.name }} </h2>
+        </div>
+    </div>
+
+    {% for movie in movies | filter(movie=> movie.category.name == category.name) %}
 
         <div class="card me-0 m-3" style="width: 18rem;">
             <img src="{{ asset('assets/picture/Logo YouFilm3.png') }}" class="card-img-top" alt="image">
@@ -20,18 +55,5 @@
         </div>
 
     {% endfor %}
-
- {% for movie in movies |filter(movie=> movie.category.name == category.name) %}
-
-     <div class="card me-0 m-3" style="width: 18rem;">
-     <img src="{{ asset('assets/picture/Logo YouFilm3.png') }}" class="card-img-top" alt="image">
-     <div class="card-body">
-         <h5 class="card-title">{{ movie.title }}</h5>
-        <p class="card-text">{{ movie.description }}</p>
-        <a href="{{ path('movie_show', { 'id': movie.id }) }}">Lire l'article</a>
-
-     </div>
- </div>
-{% endfor %}
 
 {% endblock %}
