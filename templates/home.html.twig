@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+    {% block title %}
+        YouFilm
+    {% endblock %}
+
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
     {% endblock %}
@@ -20,50 +24,22 @@
         </div>
     </div>
 
-    <div class="card-movie">
-        {% for movie in movies %}
-
-            <a href="{{ path('movie_show', { 'id': movie.id }) }} " class="text-decoration-none movie_list">
-                <div class="m-3 me-2 ms-2">
-                    <img src="/images/{{ movie.thumbnail }}" class="card-img-top movie-thumbnail" alt="miniature film">
-                </div>
-            </a>
-
-        {% endfor %}
-    </div>
-
-    <div class="category">
-        <h2> Catégories : </h2>
-    </div>
-
-    <div class="d-flex align-items-center overflow-auto oui">
-        <div class="card-group flex-nowrap">
-            {% for categorie in category %}
-                <a href="{{ path('app_category', { 'name': categorie.name }) }}">
-                    <div class="card d-flex justify-content-center align-items-center m-4"
-                         style="width: 18rem; height: 10rem;">
-                        <h2>{{ categorie.name }}</h2>
-                    </div>
-                </a>
-            {% endfor %}
-        </div>
-    </div>
-
-
 {% else %} {# Utilisateur non-connecté #}
 
     <div class="header">
-        <img src="{{ asset('/assets/picture/Logo YouFilm Blanx.png') }}" alt="Logo YouFilm" class="logo">
+        <img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}" alt="Logo YouFilm" class="logo">
 
-        <div class="button">
+        <div class="button-header">
             <a href="{{ path('app_user_login') }}">
-                <button class="btn btn-light">Connexion</button>
+                <button class="btn btn-danger button">Connexion</button>
             </a>
             <a href="{{ path('app_user_register') }}">
-                <button class="btn btn-light">Inscription</button>
+                <button class="btn btn-danger button">Inscription</button>
             </a>
         </div>
     </div>
+
+{% endif %}
 
     <div class="card-movie">
         {% for movie in movies %}
@@ -94,6 +70,5 @@
         </div>
     </div>
 
-{% endif %}
 
 {% endblock %}
