@@ -71,3 +71,10 @@ body{
     margin-left: 5em;
     margin-right: 5em;
 }
+.card{
+    --bs-card-bg: #121212;
+}
+.card-title{
+    color: whitesmoke;
+    text-align: center;
+}
