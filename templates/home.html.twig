@@ -1,29 +1,21 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
+{% extends 'base.html.twig' %}
+
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
-        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     {% endblock %}
 
-</head>
-<body>
+{% block body %}
 
 {# Utilisateur connecté #}
 
 {% if app.user is not null %}
 
     <div class="header">
-        <img src="{{ asset('/assets/picture/Logo YouFilm Blanx.png') }}" alt="Logo YouFilm" class="logo">
+        <img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}" alt="Logo YouFilm" class="logo">
 
-        <div class="button">
+        <div class="button-header">
             <a href="{{ path('app_user_logout') }}">
-                <button class="btn btn-light">Déconnexion</button>
+                <button class="btn btn-danger button">Déconnexion</button>
             </a>
         </div>
     </div>
@@ -33,7 +25,7 @@
 
             <a href="{{ path('movie_show', { 'id': movie.id }) }} " class="text-decoration-none movie_list">
                 <div class="m-3 me-2 ms-2">
-                    <img src="/images/{{ movie.thumbnail }}" class="card-img-top movie_thumbnail" alt="miniature film">
+                    <img src="/images/{{ movie.thumbnail }}" class="card-img-top movie-thumbnail" alt="miniature film">
                 </div>
             </a>
 
@@ -104,5 +96,4 @@
 
 {% endif %}
 
-</body>
-</html>
+{% endblock %}

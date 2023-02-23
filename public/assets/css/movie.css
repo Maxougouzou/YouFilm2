@@ -37,7 +37,6 @@
     margin-bottom: 0;
 }
 
-
 /* Commentaires */
 
 
@@ -48,6 +47,7 @@
 
 .no-comment{
     margin-left: 2rem;
+    color: whitesmoke;
 }
 
 .comment-offline{

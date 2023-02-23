@@ -1,17 +1,29 @@
 .header {
-    background-color: #1e293b;
+    background-color: #121212;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.5%;
+    opacity: 100%;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .logo{
     height:50px;
     justify-content: center;
+    margin-left: 1rem;
 }
 .button-create-comment{
     display: flex;
+}
+
+.button{
+    color: whitesmoke;
+    border-radius: 0;
+}
+
+.button-header{
+    margin-right: 1rem;
 }
 .card-movie{
     display: flex;
@@ -39,6 +51,7 @@ a{
     text-align: center;
     justify-content: center;
 }
+
 h1{
     margin: 0;
 }
