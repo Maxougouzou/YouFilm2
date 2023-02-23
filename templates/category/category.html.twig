@@ -8,10 +8,10 @@
     <h1>{{ category.name }}</h1>
     <div class="row display-movie">
         {% for movie in movies | filter(movie => movie.category.name == category.name) %}
-            <div class="col-md-3">
-                <div class="card mb-3">
+            <div class="col-md-2">
+                <div class="card mb-2">
                     <a href="{{ path('movie_show', { 'id': movie.id }) }}">
-                        <img src="{{ asset('assets/picture/Logo YouFilm3.png') }}" class="card-img-top" alt="image">
+                        <img src="/images/{{ movie.thumbnail }}" class="card-img-top" alt="image">
                     </a>
                     <div class="card-body">
                         <h5 class="card-title">{{ movie.title }}</h5>
