@@ -58,7 +58,13 @@ h1{
 
 body{
     margin: 0;
-    /*background-color: #4A4759;*/
+    background-color: #121212;
 }
 
+h2{
+    color:whitesmoke;
+}
 
+.card{
+    background-color: #ff0000;
+}
