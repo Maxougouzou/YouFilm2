@@ -10,28 +10,73 @@
     padding: 0.5%;
 }
 
-.content-login{
-    text-align: center;
+.grid {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 20rem;
+    width: 100%;
+    padding-top : 5%;
 }
 
-.login-form{
-    border: 1px solid #212429;
-    border-radius: 10px;
-    width: 20rem;
-    height: 3rem;
-    margin: 0.5%;
 
+
+body {
+    background-color: #2c3338;
+    color: #606468;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    height: 100%;
+    line-height: 1.5;
+    margin: 0;
+    min-height: 100vh;
 }
+
+.form__field {
+    margin: 14px 0px;
+}
+
+.form input[type='password'],
+.form input[type='text'],
+.form input[type='email']{
+    border: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.login input[type='text'],
+.login input[type='password'],
+.login input[type="email"]{
+    border-radius: 0.25rem;
+    padding: 16px;
+    color: #eee;
+    background-color: #3b4148;
+}
+
+.login input[type='password']:hover,
+.login input[type='text'] :hover,
+.login input[type='email'] :hover{
+    background-color: #434a52;
+}
+
 .submit-button{
-    background-color: #212429;
-    color: white;
+    background-color: #520096;
+    color: #eee;
+    font-weight: 700;
+    border-radius: 0 0.25rem 0.25rem 0.25rem;
+    padding: 16px;
+    width: 100%;
+    border: 0;
+    margin: 0;
+    outline: 0;
 }
 
-.login-text{
-    font-weight: lighter;
+.submit-button:hover {
+    background-color: #6e01c7;
 }
 
-.login-title{
-    font-weight: bold;
-    margin: 2% 0.5% 0.5%;
+.text--center {
+    text-align: center;
 }

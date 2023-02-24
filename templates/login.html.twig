@@ -2,34 +2,48 @@
 
 {% block title %} Login {% endblock %}
 
-{% block stylesheets %} <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}"> {% endblock %}
+{% block stylesheets %} <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"><link rel="stylesheet" href="{{ asset('assets/css/login.css') }}"> {% endblock %}
 
 {% block body %}
 
-    <div class="header-login">
-        <img src="{{asset('/assets/picture/Logo YouFilm Blanx.png')}}" alt="Logo YouFilm" class="logo-login">
-    </div>
+<body class="align">
 
-    <div class="content-login">
-        <h3 class="login-title">Se connecter</h3>
-        <p class="login-text">Vous avez déjà un compte YouFilm ? Saisissez l'identifiant votre compte YouFilm.</p>
+<div class="header-login">
 
-        {{ form_start(form) }}
-        <div>
-        {{ form_widget(form._username, {'attr': {'class': 'login-form', 'placeholder':'Username'}}) }}
+    <img src="{{asset('/assets/picture/Logo YouFilm Blanx.png')}}" alt="Logo YouFilm" class="logo-login">
+
+</div>
+
+
+<div class="grid">
+
+    {{ form_start(form, { 'attr' : { 'class': 'form login' } }) }}
+
+    <div class="form__field">
+
+        {{ form_widget(form._username, {'attr': {'class': 'form__input', 'placeholder':"Nom d'utilisateur"}}) }}
+
         {{ form_errors(form._username) }}
-        </div>
-        <div>
-        {{ form_widget(form._password, {'attr': {'class': 'login-form', 'placeholder':'Password'}}) }}
-        {{ form_errors(form._password) }}
-        </div>
-        <div>
-            {{ form_widget(form.submit, {'label': 'Se connecter', 'attr': {'class': 'submit-button btn'}}) }}
-        </div>
-        {{ form_end(form) }}
 
     </div>
 
+    <div class="form__field">
+
+        {{ form_widget(form._password, {'attr': {'class': 'form__input', 'placeholder':'Mot de passe'}}) }}
+
+        {{ form_errors(form._password) }}
+
+    </div>
+
+    <div class="form__field">
+
+        {{ form_widget(form.submit, {'label': 'Se connecter', 'attr': {'class': 'submit-button'}}) }}
+
+    </div>
+
+    {{ form_end(form) }}
+
+</div>
 
 {% endblock %}
 

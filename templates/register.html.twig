@@ -2,43 +2,63 @@
 
 {% block title %} Register {% endblock %}
 
-{% block stylesheets %} <link rel="stylesheet" href="{{ asset('assets/css/register.css') }}"> {% endblock %}
+{% block stylesheets %} <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}"> {% endblock %}
 
 {% block body %}
 
-    <div class="header-register">
-        <img src="{{asset('/assets/picture/Logo YouFilm3.png')}}" alt="Logo YouFilm" class="logo-register">
+<body class="align">
+
+<div class="header-login">
+
+    <img src="{{asset('/assets/picture/Logo YouFilm3.png')}}" alt="Logo YouFilm" class="logo-login">
+
+</div>
+
+<div class="grid">
+
+    {{ form_start(form, {'attr' : { 'class': 'form login' } }) }}
+
+    <div class="form__field">
+
+        {{ form_widget(form.username, {'attr': {'class': 'form__input', 'placeholder':'Username'}}) }}
+
+        {{ form_errors(form.username) }}
+
     </div>
 
-    <div class="content-register">
-        <h3 class="register-title">S'inscrire</h3>
-        <p class="register-text">Plongez dans un univers de cinéma à la demande avec YouFilm,<br>
-            la plateforme de streaming qui vous offre un accès illimité à des films et des séries exclusives,<br>
-            où que vous soyez et quand vous le voulez.</p>
+    <div class="form__field">
 
+        {{ form_widget(form.email, {'attr': {'class': 'form__input', 'placeholder':'Email'}}) }}
 
-        {{ form_start(form) }}
-        <div>
-            {{ form_widget(form.username, {'attr': {'class': 'register-form', 'placeholder':'Username'}}) }}
-            {{ form_errors(form.username) }}
-        </div>
-        <div>
-            {{ form_widget(form.email, {'attr': {'class': 'register-form', 'placeholder':'Email'}}) }}
-            {{ form_errors(form.email) }}
-        </div>
-        <div>
-            {{ form_widget(form.plainPassword.first, {'attr': {'class': 'register-form', 'placeholder':'Password'}}) }}
-            {{ form_errors(form.plainPassword.first) }}
-        </div>
-        <div>
-            {{ form_widget(form.plainPassword.second, {'attr': {'class': 'register-form', 'placeholder':'Confirmez votre mot de passe '}}) }}
-            {{ form_errors(form.plainPassword.second) }}
-        </div>
-        <div>
-            {{ form_widget(form.submit, {'label': "S'inscrire", 'attr': {'class': 'submit-button btn'}}) }}
-        </div>
-        {{ form_end(form) }}
+        {{ form_errors(form.email) }}
+
     </div>
+
+    <div class=form__field>
+
+        {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form__input', 'placeholder':'Password'}}) }}
+
+        {{ form_errors(form.plainPassword.first) }}
+
+    </div>
+
+    <div class="form__field">
+
+        {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form__input', 'placeholder':'Confirmez votre mot de passe '}}) }}
+
+        {{ form_errors(form.plainPassword.second) }}
+
+    </div>
+
+    <div>
+
+        {{ form_widget(form.submit, {'label': "S'inscrire", 'attr': {'class': 'submit-button'}}) }}
+
+    </div>
+
+    {{ form_end(form) }}
+
+</div>
 
 
 {% endblock %}
