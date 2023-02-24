@@ -1,9 +1,17 @@
 .movie-title{
     text-align: start;
-    text-transform: uppercase;
     color: white;
     margin-right: 1rem;
     font-weight: bolder;
+    font-family: 'Jost', sans-serif;
+    font-size: 3.5rem;
+
+}
+
+.favorite-movie-icon{
+    height: 2rem;
+    margin-bottom: 0.5rem;
+    margin-left: 0.5rem;
 }
 
 

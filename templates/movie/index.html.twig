@@ -45,11 +45,11 @@
 
                     {% if app.user and reaction is null %}
                         <a href="{{ path('movies_favorite', {'id': movie.id}) }}">
-                            <button class="btn btn-danger button-category ms-2">Mettre en favori</button>
+                            <img src="{{ asset('/assets/picture/etoile.png') }}" alt="étoile favori" class="favorite-movie-icon">
                         </a>
                     {% elseif reaction.getType() == 'favorite' %}
                         <a href="{{ path('movies_favorite', {'id': movie.id}) }}">
-                            <button class="btn btn-danger button-category ms-2">Enlever des favoris</button>
+                            <img src="{{ asset('/assets/picture/etoile-pleine.png') }}" alt="étoile favori pleine" class="favorite-movie-icon">
                         </a>
                     {% endif %}
 

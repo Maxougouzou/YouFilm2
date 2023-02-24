@@ -35,6 +35,9 @@
 .div-header-text{
     color: whitesmoke;
     font-weight: bold;
+    font-size: 4rem;
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
 }
 
 .div-header-image{
