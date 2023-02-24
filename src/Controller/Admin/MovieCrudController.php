@@ -34,6 +34,9 @@ class MovieCrudController extends AbstractCrudController
                 ->setUploadDir('public/images'),
             ImageField::new('video')
                 ->setBasePath('images/')
+                ->setUploadDir('public/images'),
+            ImageField::new('illustration')
+                ->setBasePath('images/')
                 ->setUploadDir('public/images')
         ];
     }

@@ -35,6 +35,9 @@ class Movie
     #[ORM\Column(length: 255)]
     private ?string $video = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $illustration ;
+
 
     public function __construct()
     {
@@ -95,33 +98,6 @@ public function setCategory(?Category $category): self
 
     return $this;
 }
-/*
-public function getImages(): Collection
-{
-    return $this->images;
-}
-
-public function addImage(Image $image): self
-{
-    if (!$this->images->contains($image)) {
-        $this->images->add($image);
-        $image->setMovie($this);
-    }
-
-    return $this;
-}
-
-public function removeImage(Image $image): self
-{
-    if ($this->images->removeElement($image)) {
-        // set the owning side to null (unless already changed)
-        if ($image->getMovie() === $this) {
-            $image->setMovie(null);
-        }
-    }
-
-    return $this;
-}*/
 
 public function getThumbnail(): ?string
 {
@@ -146,4 +122,16 @@ public function setVideo(string $video): self
 
     return $this;
 }
+
+    public function getIllustration(): ?string
+    {
+        return $this->illustration;
+    }
+
+    public function setIllustration(?string $illustration): void
+    {
+        $this->illustration = $illustration;
+    }
+
+
 }

@@ -47,7 +47,7 @@
     <div class="row display-movie">
         {% for movie in movies|filter(movie => movie.category.name == category.name) %}
             <div class="col-md-2 mt-3">
-                <div class="card mb-2">
+                <div class="card mb-2" style="">
                     <a href="{{ path('movie_show', { 'id': movie.id }) }}">
                         <img src="/images/{{ movie.thumbnail }}" class="card-img-top" alt="image">
                     </a>
