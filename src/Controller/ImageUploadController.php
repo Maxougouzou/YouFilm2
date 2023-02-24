@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\File;
 use App\Entity\Image;
 use App\Form\ImageType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
