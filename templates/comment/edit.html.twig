@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2 class="mb-4">Modifier le commentaire :</h2>
+
+                {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_label(form.content, 'Contenu') }}
+                    {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.content) }}
+                </div>
+
+                <div class="form-group d-flex">
+                    {{ form_row(form.submit, {'label': 'Modifier', 'attr': {'class': 'btn btn-primary'}}) }}
+                    <a href="{{ path('movie_show', {'id': movie.id}) }}" class="btn btn-secondary">Annuler</a>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

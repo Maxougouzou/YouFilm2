@@ -88,7 +88,7 @@
 
                 <h2 class="comment-title">Commentaires</h2>
 
-                <a href="{{ path('app_create_comment', {'id': movie.id}) }}" class="add-comment">
+                <a href="{{ path('app_create_comment',{'id':movie.id}) }}" class="add-comment">
                     <button class="btn btn-danger comment-button">Ajouter un commentaire</button>
                 </a>
 
@@ -104,9 +104,16 @@
                 {% for comment in comments %}
                     <div class="card-comment" style="width: 50rem;">
                         <div class="card-body">
-                            <h5 class="card-comment-username">{{ comment.userId.username }}</h5>
+                            <div class="d-flex align-items-center">
+                                <h5 class="card-comment-username">{{ comment.userId.username }}</h5>
+                                <div class="icon-comment">
+                                {% if comment.userId == app.user %}
+                                    <a href="{{ path('app_delete_comment',{'id': comment.id }) }}"><img src="{{ asset('/assets/picture/supprimer.png') }}" alt="delete icon" class="delete-comment"></a>
+                                    <a href="{{ path('app_edit_comment',{'id':comment.id}) }}"><img src="{{ asset('/assets/picture/editer(1).png') }}" alt="delete icon" class="edit-comment"></a>
+                                {% endif %}
+                                </div>
+                            </div>
                             <p class="card-text">{{ comment.content }}</p>
-                            <hr>
                         </div>
                     </div>
 

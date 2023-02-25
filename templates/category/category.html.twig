@@ -10,7 +10,8 @@
 
     {% if app.user is not null %}
         <div class="header">
-            <a href="{{ path('app_home_home') }}"><img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}" alt="Logo YouFilm" class="logo"></a>
+            <a href="{{ path('app_home_home') }}"><img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}"
+                                                       alt="Logo YouFilm" class="logo"></a>
 
             <div class="button-header">
                 <a href="{{ path('app_user_logout') }}">
@@ -22,7 +23,7 @@
     {% else %} {# Utilisateur non-connecté #}
 
         <div class="header">
-            <img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}" alt="Logo YouFilm" class="logo">
+            <a href="{{ path('app_home_home') }}"><img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}" alt="Logo YouFilm" class="logo"></a>
 
             <div class="button-header">
                 <a href="{{ path('app_user_login') }}">
@@ -44,20 +45,22 @@
     </div>
 
 
-    <div class="row display-movie">
-        {% for movie in movies|filter(movie => movie.category.name == category.name) %}
-            <div class="col-md-2 mt-3">
-                <div class="card mb-2" style="">
-                    <a href="{{ path('movie_show', { 'id': movie.id }) }}">
-                        <img src="/images/{{ movie.thumbnail }}" class="card-img-top" alt="image">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ movie.title }}</h5>
-                       {# <p class="card-text">{{ movie.description }}</p>#}
+    <div class="container">
+        <div class="row d-flex justify-content-start">
+            {% for movie in movies|filter(movie => movie.category.name == category.name) %}
+                <div class="col-sm-3">
+                    <div class="card">
+                        <a href="{{ path('movie_show', { 'id': movie.id }) }}">
+                            <img src="/images/{{ movie.illustration }}" class="card-img-top" alt="image">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ movie.title }}</h5>
+                            <p class="card-category">{{ movie.category.name }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 
 {% endblock %}

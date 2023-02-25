@@ -87,6 +87,8 @@
     background-color: #121212;
     color: whitesmoke;
     margin: 2rem;
+    box-shadow: 1px 1px 1px 0 rgba(255,255,255,1);
+    padding: 1%;
 }
 
 .comment-ban{
@@ -157,4 +159,20 @@ body{
 }
 .btn-danger {
     --bs-btn-bg: #ff0000;
+}
+
+.delete-comment{
+    width: 20px;
+    height: 20px;
+}
+
+.edit-comment{
+    width: 20px;
+    height: 20px;
+    margin-left: 0.5rem;
+}
+
+.icon-comment{
+    margin-left: 83%;
+    display: flex;
 }

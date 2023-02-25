@@ -74,11 +74,30 @@ body{
     margin-left: 5em;
     margin-right: 5em;
 }
-.card{
-    --bs-card-bg: #121212;
-}
-.card-title{
-    color: whitesmoke;
-    text-align: center;
+.card {
+    width: 20rem;
+    border-radius: 0;
+    overflow: hidden;
+    margin-top: 2rem;
+    border: 0;
 }
 
+.card img {
+    width: 100%;
+    height: 10rem; /* définissez la hauteur souhaitée pour l'image */
+    object-fit: cover; /* ajustez la taille de l'image sans la déformer */
+}
+
+.card-body {
+    padding: 1rem; /* ajoutez un padding de 1rem à l'intérieur de la div */
+    background-color: #221f1f;
+}
+
+.card-title {
+    font-size: 1.2rem; /* définissez la taille de police pour le titre de la card */
+    margin-bottom: 0; /* supprimez les marges en dessous du titre de la card */
+    color: whitesmoke;
+}
+.card-category{
+    color: red;
+}
