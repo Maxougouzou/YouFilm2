@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
+{% block title %} Film {% endblock %}
+
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('assets/css/category.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/movie.css') }}">
 {% endblock %}
 
 {% block body %}
-
-    {# Utilisateur connecté #}
 
     {% if app.user is not null %}
         <div class="header">
@@ -40,28 +40,21 @@
     <div class="div-header">
         <img src="{{ asset('assets/picture/header.jpg') }}" class="div-header-image" alt="image">
         <div class="div-header-content">
-            <h2 class="div-header-text"> {{ category.name }} </h2>
+            <h2 class="div-header-text"> Tous les films </h2>
         </div>
     </div>
 
+    <div class="card-movie">
+        {% for movie in movies %}
 
-    <div class="container">
-        <div class="row d-flex justify-content-start">
-            {% for movie in movies|filter(movie => movie.category.name == category.name) %}
-                <div class="col-sm-3">
-                    <a href="{{ path('movie_show', { 'id': movie.id }) }}">
-                    <div class="card">
-                        <img src="/images/{{ movie.illustration }}" class="card-img-top" alt="image">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ movie.title }}</h5>
-                            <p class="card-category">{{ movie.category.name }}</p>
-                        </div>
-                    </div></a>
+            <a href="{{ path('movie_show', { 'id': movie.id }) }} " class="text-decoration-none movie-list">
+                <div class="m-3 me-2 ms-2">
+                    <img src="/images/{{ movie.thumbnail }}" class="card-img-top movie-thumbnail" alt="miniature film">
                 </div>
-            {% endfor %}
-        </div>
-    </div>
+            </a>
 
+        {% endfor %}
+    </div>
 
 
 

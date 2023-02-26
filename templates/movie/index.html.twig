@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %} {{ movie.title }} {% endblock %}
+
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('assets/css/movie.css') }}">
 {% endblock %}
@@ -126,6 +127,7 @@
 
 
     {% else %} {# Affichage utilisateur non-connecté #}
+
         <div class="comment-offline">
             <h2>Connectez vous pour voir les commentaires</h2>
         </div>

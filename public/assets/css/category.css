@@ -1,3 +1,4 @@
+/* Header */
 .header {
     background-color: #121212;
     display: flex;
@@ -13,6 +14,12 @@
     justify-content: center;
     margin-left: 1rem;
 }
+
+.button-header{
+    margin-right: 1rem;
+}
+
+/* fin header */
 
 .div-header{
     display: flex;
@@ -51,10 +58,6 @@
     color: whitesmoke;
     border-radius: 0;
     margin-left: 0.5rem;
-}
-
-.button-header{
-    margin-right: 1rem;
 }
 
 

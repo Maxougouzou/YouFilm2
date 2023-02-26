@@ -10,43 +10,52 @@
 
 {% block body %}
 
-{# Utilisateur connecté #}
+    {# Utilisateur connecté #}
 
-{% if app.user is not null %}
+    {% if app.user is not null %}
 
-    <div class="header">
-        <img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}" alt="Logo YouFilm" class="logo">
+        <div class="header">
+            <img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}" alt="Logo YouFilm" class="logo">
 
-        <div class="button-header">
-            <a href="{{ path('app_user_logout') }}">
-                <button class="btn btn-danger button">Déconnexion</button>
-            </a>
+            <div class="button-header">
+                <a href="{{ path('app_user_logout') }}">
+                    <button class="btn btn-danger button">Déconnexion</button>
+                </a>
+            </div>
+        </div>
+
+    {% else %} {# Utilisateur non-connecté #}
+
+        <div class="header">
+            <img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}" alt="Logo YouFilm" class="logo">
+
+            <div class="button-header d-flex ">
+                <a href="{{ path('app_user_login') }}">
+                    <button class="btn btn-danger button ">Connexion</button>
+                </a>
+                <a href="{{ path('app_user_register') }}" class="ms-2">
+                    <button class="btn btn-danger button">Inscription</button>
+                </a>
+            </div>
+        </div>
+
+    {% endif %}
+
+    <div class="d-flex align-items-center justify-content-between div-more-film">
+    <div class="category">
+        <h3 class="recent-movie"> Film récents : </h3>
+    </div>
+        <div class="more-film">
+            <a href="{{ path('app_all_movie') }}"><button class="btn btn-danger button">Plus de film</button></a>
         </div>
     </div>
-
-{% else %} {# Utilisateur non-connecté #}
-
-    <div class="header">
-        <img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}" alt="Logo YouFilm" class="logo">
-
-        <div class="button-header">
-            <a href="{{ path('app_user_login') }}">
-                <button class="btn btn-danger button">Connexion</button>
-            </a>
-            <a href="{{ path('app_user_register') }}">
-                <button class="btn btn-danger button">Inscription</button>
-            </a>
-        </div>
-    </div>
-
-{% endif %}
 
     <div class="card-movie">
         {% for movie in movies %}
 
-            <a href="{{ path('movie_show', { 'id': movie.id }) }} " class="text-decoration-none movie_list">
+            <a href="{{ path('movie_show', { 'id': movie.id }) }} " class="text-decoration-none movie-list">
                 <div class="m-3 me-2 ms-2">
-                    <img src="/images/{{ movie.thumbnail }}" class="card-img-top movie_thumbnail" alt="miniature film">
+                    <img src="/images/{{ movie.thumbnail }}" class="card-img-top movie-thumbnail" alt="miniature film">
                 </div>
             </a>
 
@@ -61,8 +70,7 @@
         <div class="card-group flex-nowrap">
             {% for categorie in category %}
                 <a href="{{ path('app_category', { 'name': categorie.name }) }}">
-                    <div class="card d-flex justify-content-center align-items-center m-4"
-                         style="width: 18rem; height: 10rem;">
+                    <div class="card d-flex justify-content-center align-items-center m-4">
                         <h2>{{ categorie.name }}</h2>
                     </div>
                 </a>

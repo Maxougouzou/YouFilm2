@@ -28,16 +28,21 @@
 }
 .card-movie{
     display: flex;
-    margin: 1rem 2rem;
+    margin: 0 2rem 1rem;
+}
+
+.recent-movie{
+    margin-bottom: 0;
+
 }
 
 .movie-thumbnail{
     height: 20rem;
-    width: 8rem;
+    width: 15rem;
     object-fit: cover;
 }
 
-.movie_list{
+.movie-list{
     width: 15rem;
 }
 .category{
@@ -74,23 +79,19 @@ h3 {
 .card{
     background-color: #ff0000;
     font-weight: bold;
+    border-radius: 10px;
+    width: 18rem;
+    height: 10rem;
 }
 
 .btn-danger {
     background-color: #ff0000;
-    font-weight: 700;
-    padding: 16px 50px;
-    width: 100%;
     border: 0;
-    margin: 10px 0 10px 0;
-    outline: 0;
-    justify-content: start;
 }
 
 .btn-secondary {
     font-weight: 700;
     padding: 16px 40px;
-    width: 100%;
     border: 0;
     margin: 10px 0 10px 10px;
     outline: 0;
@@ -118,4 +119,12 @@ h3 {
 
 .form-group.d-flex{
     display: flex;
+}
+
+.more-film{
+    margin-right: 1rem;
+}
+
+.div-more-film{
+    padding: 1% 0.5%;
 }

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Movie;
 use App\Entity\Reaction;
 use App\Entity\User;
@@ -9,6 +10,7 @@ use App\Repository\CommentRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MovieController extends AbstractController
@@ -31,5 +33,16 @@ class MovieController extends AbstractController
                 'comments' => $comments,
                 'reaction'=>$reaction,
             ]);
+        }
+        #[Route('movies',name:'app_all_movie')]
+        public function allMovie(EntityManagerInterface $entityManager):Response
+        {
+            $category = $entityManager->getRepository(Category::class)->findAll();
+            $movies = $entityManager->getRepository(Movie::class)->findAll();
+
+        return $this->render('movie/allmovie.html.twig', [
+            'category' => $category,
+            'movies' => $movies
+        ]);
         }
 }
