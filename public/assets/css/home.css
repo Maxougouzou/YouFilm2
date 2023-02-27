@@ -1,3 +1,4 @@
+/* header */
 .header {
     background-color: #121212;
     display: flex;
@@ -13,6 +14,40 @@
     justify-content: center;
     margin-left: 1rem;
 }
+
+.div-button-header-disconnect{
+    margin-right: 1rem;
+    width: 7%;
+}
+
+.button-disconnect-header{
+    color: whitesmoke;
+    border-radius: 0;
+    margin-left: 0.5rem;
+}
+
+.div-button-header-login{
+    margin-right: 1rem;
+    width: 50%;
+}
+
+.div-button-header-register{
+    margin-right: 0.5rem;
+    margin-left: 0;
+    width: 50%;
+}
+
+.div-button-header-login-register{
+    width: 16%;
+    padding:0.5%;
+}
+
+.button-login-header{
+    color: whitesmoke;
+    border-radius: 0;
+}
+
+/* fin header */
 .button-create-comment{
     display: flex;
 }
@@ -23,9 +58,6 @@
     margin-left: 0.5rem;
 }
 
-.button-header{
-    margin-right: 1rem;
-}
 .card-movie{
     display: flex;
     margin: 0 2rem 1rem;
@@ -89,6 +121,10 @@ h3 {
     border: 0;
 }
 
+.btn{
+    width: 100%;
+}
+
 .btn-secondary {
     font-weight: 700;
     padding: 16px 40px;
@@ -123,6 +159,7 @@ h3 {
 
 .more-film{
     margin-right: 1rem;
+    width: 7%;
 }
 
 .div-more-film{
