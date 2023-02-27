@@ -48,6 +48,7 @@
 }
 
 /* fin header */
+
 .button-create-comment{
     display: flex;
 }
@@ -69,14 +70,13 @@
 }
 
 .movie-thumbnail{
-    height: 20rem;
-    width: 15rem;
     object-fit: cover;
 }
 
 .movie-list{
     width: 15rem;
 }
+
 .category{
     margin-left: 2rem ;
 }
@@ -84,6 +84,7 @@
 a{
     text-decoration: none;
 }
+
 .video{
     display: flex;
     text-align: center;

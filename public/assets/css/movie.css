@@ -5,7 +5,7 @@
     font-weight: bolder;
     font-family: 'Jost', sans-serif;
     font-size: 3.5rem;
-
+    text-transform: capitalize;
 }
 
 .favorite-movie-icon{
@@ -13,7 +13,6 @@
     margin-bottom: 0.5rem;
     margin-left: 0.5rem;
 }
-
 
 .movie-description-title {
     display: flex;
@@ -224,7 +223,5 @@ a{
 }
 
 .movie-thumbnail{
-    height: 20rem;
-    width: 15rem;
     object-fit: cover;
 }

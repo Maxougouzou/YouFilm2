@@ -9,6 +9,7 @@
 {% block body %}
 
     {% if app.user is not null %}
+
         <div class="header">
             <a href="{{ path('app_home_home') }}"><img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}"
                                                        alt="Logo YouFilm" class="logo"></a>
@@ -47,7 +48,7 @@
     <div class="card-movie">
         {% for movie in movies %}
 
-            <a href="{{ path('movie_show', { 'id': movie.id }) }} " class="text-decoration-none movie-list">
+            <a href="{{ path('movie_show', { 'id': movie.id }) }} " class="movie-list">
                 <div class="m-3 me-2 ms-2">
                     <img src="/images/{{ movie.thumbnail }}" class="card-img-top movie-thumbnail" alt="miniature film">
                 </div>

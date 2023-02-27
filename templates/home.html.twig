@@ -54,10 +54,10 @@
         </div>
     </div>
 
-    <div class="card-movie">
-        {% for movie in movies %}
+    <div class="card-movie justify-content-center">
+        {% for movie in movies|slice(0, 7) %}
 
-            <a href="{{ path('movie_show', { 'id': movie.id }) }} " class="text-decoration-none movie-list">
+            <a href="{{ path('movie_show', { 'id': movie.id }) }} " class="movie-list">
                 <div class="m-3 me-2 ms-2">
                     <img src="/images/{{ movie.thumbnail }}" class="card-img-top movie-thumbnail" alt="miniature film">
                 </div>
