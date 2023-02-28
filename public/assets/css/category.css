@@ -89,6 +89,7 @@ body{
     width: 100%;
     height: 10rem; /* définissez la hauteur souhaitée pour l'image */
     object-fit: cover; /* ajustez la taille de l'image sans la déformer */
+    border-radius: 0;
 }
 
 .card-body {
