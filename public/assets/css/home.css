@@ -50,7 +50,6 @@
 /* fin header */
 
 .button-create-comment{
-    display: flex;
 }
 
 .button{
@@ -165,4 +164,30 @@ h3 {
 
 .div-more-film{
         padding: 1% 0.5% 1% 0;
+}
+
+.btn-submit{
+    font-weight: 700;
+    width: 320px;
+    height: 60px;
+    margin: 10px 0 5px;
+    border-radius: 0.25rem;
+    background-color: #ff0000;
+    outline:0;
+    border: none;
+}
+
+.btn-cancel {
+    font-weight: 700;
+    width: 320px;
+    height: 60px;
+    margin: 5px 0 10px;
+    border-radius: 0.25rem;
+    background-color: #6c757d;
+    outline:0;
+    border: none;
+    color:whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

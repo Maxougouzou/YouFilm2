@@ -21,8 +21,8 @@
                 </div>
 
                 <div class="button-create-comment">
-                        {{ form_row(form.submit, {'attr': {'class': 'btn btn-danger'}}) }}
-                        <a href="{{ path('movie_show', {'id': movie.id}) }}" class="btn btn-secondary">Annuler</a>
+                        {{ form_row(form.submit, {'attr': {'class': 'btn-submit'}}) }}
+                        <a href="{{ path('movie_show', {'id': movie.id}) }}" class="btn-cancel">Annuler</a>
                 </div>
                 {{ form_end(form) }}
         </div>
