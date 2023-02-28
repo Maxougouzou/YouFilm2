@@ -20,9 +20,9 @@
                     {{ form_errors(form.content) }}
                 </div>
 
-                <div class="form-group d-flex">
-                    {{ form_row(form.submit, {'label': 'Modifier', 'attr': {'class': 'btn btn-danger'}}) }}
-                    <a href="{{ path('movie_show', {'id': movie.id}) }}" class="btn btn-secondary">Annuler</a>
+                <div>
+                    {{ form_row(form.submit, {'label': 'Modifier', 'attr': {'class': 'btn-submit'}}) }}
+                    <a href="{{ path('movie_show', {'id': movie.id}) }}" class="btn-cancel">Annuler</a>
                 </div>
                 {{ form_end(form) }}
             </div>
