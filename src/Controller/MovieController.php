@@ -21,9 +21,9 @@ class MovieController extends AbstractController
     {
         $movie = $entityManager->getRepository(Movie::class)->find($id);
 
-        $user = $entityManager->getRepository(User::class)->findAll();
+        $user = $this->getUser();
 
-        $reaction = $entityManager->getRepository(Reaction::class)->findOneBy(['movie_id' => $movie]);;
+        $reaction = $entityManager->getRepository(Reaction::class)->findOneBy(['movie_id' => $movie, 'user_id'=>$user]);;
 
         $comments = $commentRepository->findBy(['movie_id' => $movie->getId()]);
 
@@ -34,6 +34,7 @@ class MovieController extends AbstractController
                 'reaction'=>$reaction,
             ]);
         }
+
         #[Route('movies',name:'app_all_movie')]
         public function allMovie(EntityManagerInterface $entityManager):Response
         {
@@ -51,12 +52,12 @@ class MovieController extends AbstractController
     {
         $category = $entityManager->getRepository(Category::class)->findAll();
         $movies = $entityManager->getRepository(Movie::class)->findAll();
-        $reaction = $entityManager->getRepository(Reaction::class)->findAll();
+        $reactions = $entityManager->getRepository(Reaction::class)->findAll();
 
         return $this->render('movie/favorite.html.twig', [
             'category' => $category,
             'movies' => $movies,
-            'reaction' => $reaction,
+            'reactions' => $reactions,
         ]);
     }
 

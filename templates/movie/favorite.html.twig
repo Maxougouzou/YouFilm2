@@ -46,18 +46,24 @@
     </div>
 
     <div class="card-movie">
-        {% for movie in movies  %}
-            {% for reaction in reaction %}
-                {% if reaction.movieId == movie and reaction.type == 'favorite' %}
-                    <a href="{{ path('movie_show', { 'id': movie.id }) }} " class="movie-list">
-                        <div class="m-3 me-2 ms-2">
-                            <img src="/images/{{ movie.thumbnail }}" class="card-img-top movie-thumbnail" alt="miniature film">
-                        </div>
-                    </a>
+        {% if app.user %}
+            {% for reaction in reactions %}
+
+                {% if reaction.userId.id == app.user.id %}
+                <a href="{{ path('movie_show', { 'id': reaction.movieId.id }) }}" class="movie-list">
+                    <div class="m-3 me-2 ms-2">
+                        <img src="/images/{{ reaction.movieId.thumbnail }}" class="card-img-top movie-thumbnail" alt="miniature film">
+                    </div>
+                </a>
                 {% endif %}
+
             {% endfor %}
-        {% endfor %}
+        {% else %}
+            <h1>connecte toi</h1>
+        {% endif %}
     </div>
+
+
 
 
 
