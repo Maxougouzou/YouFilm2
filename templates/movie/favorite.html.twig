@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Film {% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/movie.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    {% if app.user is not null %}
+
+        <div class="header">
+            <a href="{{ path('app_home_home') }}"><img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}"
+                                                       alt="Logo YouFilm" class="logo"></a>
+
+            <div class="button-header">
+                <a href="{{ path('app_user_logout') }}">
+                    <button class="btn btn-danger button">Déconnexion</button>
+                </a>
+            </div>
+        </div>
+
+    {% else %} {# Utilisateur non-connecté #}
+
+        <div class="header">
+            <a href="{{ path('app_home_home') }}"><img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}" alt="Logo YouFilm" class="logo"></a>
+
+            <div class="button-header">
+                <a href="{{ path('app_user_login') }}">
+                    <button class="btn btn-danger button">Connexion</button>
+                </a>
+                <a href="{{ path('app_user_register') }}">
+                    <button class="btn btn-danger button">Inscription</button>
+                </a>
+            </div>
+        </div>
+
+    {% endif %}
+
+    <div class="div-header">
+        <img src="{{ asset('assets/picture/header.jpg') }}" class="div-header-image" alt="image">
+        <div class="div-header-content">
+            <h2 class="div-header-text"> Mes Favoris </h2>
+        </div>
+    </div>
+
+    <div class="card-movie">
+        {% for movie in movies  %}
+            {% for reaction in reaction %}
+                {% if reaction.movieId == movie and reaction.type == 'favorite' %}
+                    <a href="{{ path('movie_show', { 'id': movie.id }) }} " class="movie-list">
+                        <div class="m-3 me-2 ms-2">
+                            <img src="/images/{{ movie.thumbnail }}" class="card-img-top movie-thumbnail" alt="miniature film">
+                        </div>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+
+
+
+
+{% endblock %}

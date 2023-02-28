@@ -45,4 +45,20 @@ class MovieController extends AbstractController
             'movies' => $movies
         ]);
         }
+
+    #[Route('/favoritefilm',name:'app_favorite_movie')]
+    public function favoriteMovie(EntityManagerInterface $entityManager):Response
+    {
+        $category = $entityManager->getRepository(Category::class)->findAll();
+        $movies = $entityManager->getRepository(Movie::class)->findAll();
+        $reaction = $entityManager->getRepository(Reaction::class)->findAll();
+
+        return $this->render('movie/favorite.html.twig', [
+            'category' => $category,
+            'movies' => $movies,
+            'reaction' => $reaction,
+        ]);
+    }
+
+
 }
