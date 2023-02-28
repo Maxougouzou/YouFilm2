@@ -36,7 +36,14 @@ class Movie
     private ?string $video = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $illustration ;
+    private ?string $illustration;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $subtitle = null;
+
+
+
+
 
 
     public function __construct()
@@ -131,6 +138,18 @@ public function setVideo(string $video): self
     public function setIllustration(?string $illustration): void
     {
         $this->illustration = $illustration;
+    }
+
+    public function getSubtitle(): ?string
+    {
+        return $this->subtitle;
+    }
+
+    public function setSubtitle(?string $subtitle): self
+    {
+        $this->subtitle = $subtitle;
+
+        return $this;
     }
 
 
