@@ -39,8 +39,8 @@
         <div style="width: 50%" class="div-gauche">
             <div class="d-flex align-items-center div-title-movie">
                 <h2 class="movie-title">{{ movie.title }}</h2>
-                <a href="{{ path('app_category', {'name': movie.category.name,}) }}"><button class="btn btn-danger button-category"
-                            class="movie-category-name">{{ movie.category.name }}</button></a>
+                <a href="{{ path('app_category', {'name': movie.category.name,}) }}"><button class="btn btn-danger button-category"><p
+                            class="movie-category-name">{{ movie.category.name }}</p></button></a>
 
                 {% if app.user is not null %}
 
@@ -69,6 +69,7 @@
                 <video controls width="80%" class="video-player">
                     <source src="/images/{{ movie.video }}" type="video/mp4">
                     <track label="Français" kind="subtitles" srclang="fr"  src="/images/{{ movie.subtitle }}">
+                </video>
                 </video>
             </div>
         </div>
