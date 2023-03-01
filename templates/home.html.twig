@@ -17,11 +17,47 @@
         <div class="header">
             <img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}" alt="Logo YouFilm" class="logo">
 
-            <div class="div-button-header-disconnect">
-                <a href="{{ path('app_user_logout') }}">
-                    <button class="btn btn-danger button-disconnect-header">Déconnexion</button>
+
+            <div class="dropdown user-menu-wrapper ">
+                <a class="user-details" type="button" data-bs-toggle="dropdown" data-bs-offset="0,5" aria-expanded="false">
+                                                                        <span class="user-avatar">
+                    <span class="fa-stack">
+                        <i><img src="{{ asset('assets/picture/etoile.png') }}"alt="icone" style="height: 20px"></i>
+                        <i class="user-avatar-icon-foreground fa fa-user fa-stack-1x fa-inverse">div</i>
+                    </span>
+                </span>
+
+                    <span class="user-name">{{ user.username }}</span>
                 </a>
+
+                <ul class="dropdown-menu dropdown-menu-end" style="">
+                    <li class="dropdown-user-details">
+                        <div>                            <span class="user-avatar">
+                    <span class="fa-stack">
+                        <i class="user-avatar-icon-background fas fa-square fa-stack-2x"></i>
+                        <i class="user-avatar-icon-foreground fa fa-user fa-stack-1x fa-inverse"></i>
+                    </span>
+                </span>
+                        </div>
+                        <div>
+                            <span class="user-label">Logged in as</span>
+                            <span class="user-name">admin</span>
+                        </div>
+                    </li>
+
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                    </li>
+                    <li>
+                        <a href="/logout" class="dropdown-item user-action " target="_self" rel="" referrerpolicy="origin-when-cross-origin">
+                            <i class="fa fa-fw fa-sign-out"></i>                                        <span>Sign out</span>
+                        </a>
+                    </li>
+                </ul>
+
             </div>
+
+
         </div>
 
     {% else %} {# Utilisateur non-connecté #}
