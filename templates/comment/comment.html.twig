@@ -8,6 +8,11 @@
 
         <div class="header">
                 <a href="{{ path('app_home_home') }}"><img src="{{asset('/assets/picture/Logo YouFilm3.png')}}" alt="Logo YouFilm" class="logo"></a>
+                <div class="div-button-header-disconnect">
+                        <a href="{{ path('app_user_logout') }}">
+                                <button class="btn btn-danger button-disconnect-header">Déconnexion</button>
+                        </a>
+                </div>
         </div>
 
         <div class="grid">
@@ -20,9 +25,9 @@
                         {{ form_errors(form.content) }}
                 </div>
 
-                <div class="button-create-comment">
-                        {{ form_row(form.submit, {'attr': {'class': 'btn btn-danger'}}) }}
-                        <a href="{{ path('movie_show', {'id': movie.id}) }}" class="btn btn-secondary">Annuler</a>
+                <div>
+                        {{ form_row(form.submit, {'label': 'Envoyer', 'attr': {'class': 'btn-submit'}}) }}
+                        <a href="{{ path('movie_show', {'id': movie.id}) }}" class="btn-cancel">Annuler</a>
                 </div>
                 {{ form_end(form) }}
         </div>

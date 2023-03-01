@@ -45,7 +45,8 @@
         </div>
     </div>
 
-    <div class="card-movie">
+    <div class="div-all-movie">
+    <div class="row card-movie justify-content-center align-items-center">
         {% for movie in movies %}
 
             <a href="{{ path('movie_show', { 'id': movie.id }) }} " class="movie-list">
@@ -55,6 +56,7 @@
             </a>
 
         {% endfor %}
+    </div>
     </div>
 
 

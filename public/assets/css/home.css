@@ -17,7 +17,6 @@
 
 .div-button-header-disconnect{
     margin-right: 1rem;
-    width: 7%;
 }
 
 .button-disconnect-header{
@@ -48,10 +47,6 @@
 }
 
 /* fin header */
-
-.button-create-comment{
-    display: flex;
-}
 
 .button{
     color: whitesmoke;
@@ -160,9 +155,36 @@ h3 {
 
 .more-film{
     margin-right: 1rem;
-    width: 7%;
+    margin-top: 0.25rem;
 }
 
 .div-more-film{
-    padding: 1% 0.5%;
+        padding: 1% 0.5% 1% 0;
+}
+
+.btn-submit{
+    font-weight: 400;
+    width: 320px;
+    height: 60px;
+    margin: 10px 0 5px;
+    border-radius: 0.25rem;
+    background-color: #ff0000;
+    color :whitesmoke;
+    outline:0;
+    border: none;
+}
+
+.btn-cancel {
+    font-weight: 400;
+    width: 320px;
+    height: 60px;
+    margin: 5px 0 10px;
+    border-radius: 0.25rem;
+    background-color: #6c757d;
+    outline:0;
+    border: none;
+    color:whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
