@@ -36,6 +36,4 @@ class ReactionController extends AbstractController
         return $this->redirectToRoute('movie_show', ['id' => $movie_id]);
     }
 
-
-
 }
