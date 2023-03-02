@@ -40,10 +40,12 @@ class MovieController extends AbstractController
         {
             $category = $entityManager->getRepository(Category::class)->findAll();
             $movies = $entityManager->getRepository(Movie::class)->findAll();
+            $user = $this->getUser();
 
         return $this->render('movie/allmovie.html.twig', [
             'category' => $category,
-            'movies' => $movies
+            'movies' => $movies,
+            'user' => $user,
         ]);
         }
 
@@ -53,11 +55,13 @@ class MovieController extends AbstractController
         $category = $entityManager->getRepository(Category::class)->findAll();
         $movies = $entityManager->getRepository(Movie::class)->findAll();
         $reactions = $entityManager->getRepository(Reaction::class)->findAll();
+        $user = $this->getUser();
 
         return $this->render('movie/favorite.html.twig', [
             'category' => $category,
             'movies' => $movies,
             'reactions' => $reactions,
+            'user' => $user
         ]);
     }
 
