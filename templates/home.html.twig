@@ -32,16 +32,24 @@
                         </div>
                     </li>
 
-                    <li>
-                        <hr class="dropdown-divider">
+                    <li style="margin-top: 10%">
+                        <a href="/logout" class="dropdown-item user-action " target="_self" rel=""
+                           referrerpolicy="origin-when-cross-origin">
+                            <div class="d-flex justify-content-start align-items-center">
+                                <img src="{{ asset('assets/picture/etoile.png') }}" style="height: 18px;margin-right: 10%" class="d-flex align-items-center justify-content-start" alt="sign out icon">
+                                <span style="color: whitesmoke">Favoris</span></div>
+                        </a>
                     </li>
-                    <li>
 
+                    <li>
+                        <hr style="color: whitesmoke">
                     </li>
                     <li>
                         <a href="/logout" class="dropdown-item user-action " target="_self" rel=""
                            referrerpolicy="origin-when-cross-origin">
-                            <i></i> <span>Sign out</span>
+                            <div class="d-flex justify-content-center align-items-center">
+                            <img src="{{ asset('assets/picture/logout (2).png') }}" style="height: 15px;margin-right: 10%" class="d-flex align-items-center justify-content-start" alt="sign out icon">
+                             <span style="color: whitesmoke">Déconnexion</span></div>
                         </a>
                     </li>
                 </ul>
