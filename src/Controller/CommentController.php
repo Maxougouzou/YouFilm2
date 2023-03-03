@@ -22,6 +22,7 @@ class CommentController extends AbstractController
         $comment = new Comment();
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
+        $user = $this->getUser();
 
         if ($form->isSubmitted() && $form->isValid()) {
             $comment = $form->getData();
@@ -37,6 +38,7 @@ class CommentController extends AbstractController
         return $this->render('comment/comment.html.twig', [
             'movie' => $movie,
             'form' => $form->createView(),
+            'user' => $user
 
         ]);
 
@@ -67,6 +69,8 @@ class CommentController extends AbstractController
 
         $form->handleRequest($request);
 
+        $user = $this->getUser();
+
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
@@ -79,6 +83,7 @@ class CommentController extends AbstractController
             'form' => $form->createView(),
             'comment' => $comment,
             'movie'=>$comment->getMovieId(),
+            'user' => $user
         ]);
     }
 
