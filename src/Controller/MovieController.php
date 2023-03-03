@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Entity\Movie;
 use App\Entity\Reaction;
-use App\Entity\User;
 use App\Repository\CommentRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,6 +31,7 @@ class MovieController extends AbstractController
                 'movie' => $movie,
                 'comments' => $comments,
                 'reaction'=>$reaction,
+                'user'=>$user
             ]);
         }
 
