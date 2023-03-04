@@ -74,6 +74,20 @@
 
 .category{
     margin-left: 2rem ;
+    position: relative;
+    display: inline-block;
+}
+.nav-name-line{
+    position: absolute;
+    top: 70%; left: 0; right: 0; bottom: 10%;
+    background-color: red;
+    z-index: -1;
+}
+.nav-name-line-category{
+    position: absolute;
+    top: 60%; left: 0; right: 0; bottom: 20%;
+    background-color: red;
+    z-index: -1;
 }
 
 a{

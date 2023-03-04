@@ -8,33 +8,62 @@
 
 {% block body %}
 
-    {% if app.user is not null %}
+    {% if app.user is not null %} {# Utilisateur connecté #}
 
         <div class="header">
             <a href="{{ path('app_home_home') }}"><img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}"
                                                        alt="Logo YouFilm" class="logo"></a>
 
-            <div class="button-header">
-                <a href="{{ path('app_user_logout') }}">
-                    <button class="btn btn-danger button">Déconnexion</button>
+            <div class="dropdown user-menu-wrapper d-flex justify-content-center"
+                 style="background-color: red; border-radius: 5px; margin-right: 0.5rem">
+                <a type="button" data-bs-toggle="dropdown" data-bs-offset="0,5" aria-expanded="false"
+                   style="padding: 5px">
+                    <div style="width: 50px;" class="d-flex align-items-center justify-content-center">
+                        <i><img src="{{ asset('assets/picture/user.png') }}" alt="icone" style="height: 25px;"></i>
+                    </div>
                 </a>
+
+                <ul class="dropdown-menu dropdown-menu-end" style="background-color: #121212">
+                    <li class="dropdown-user-details">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <span style="font-size: 1rem; color: whitesmoke; margin-right: 3%">Connecté en : </span>
+                            <span style="font-size: 1rem; color: whitesmoke"> {{ user.username }}</span>
+                        </div>
+                    </li>
+
+                    <li style="margin-top: 10%">
+                        <a href="/" class="dropdown-item user-action " target="_self" rel=""
+                           referrerpolicy="origin-when-cross-origin">
+                            <div class="d-flex justify-content-start align-items-center">
+                                <img src="{{ asset('assets/picture/home.png') }}" style="height: 18px;margin-right: 10%"
+                                     class="d-flex align-items-center justify-content-start" alt="sign out icon">
+                                <span style="color: whitesmoke">Home</span></div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <hr style="color: whitesmoke">
+                    </li>
+                    <li>
+                        <a href="/logout" class="dropdown-item user-action " target="_self" rel=""
+                           referrerpolicy="origin-when-cross-origin">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <img src="{{ asset('assets/picture/logout (2).png') }}"
+                                     style="height: 15px;margin-right: 10%"
+                                     class="d-flex align-items-center justify-content-start" alt="sign out icon">
+                                <span style="color: whitesmoke">Déconnexion</span></div>
+                        </a>
+                    </li>
+                </ul>
+
             </div>
+
         </div>
 
     {% else %} {# Utilisateur non-connecté #}
-
         <div class="header">
-            <a href="{{ path('app_home_home') }}"><img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}" alt="Logo YouFilm" class="logo"></a>
-
-            <div class="button-header">
-                <a href="{{ path('app_user_login') }}">
-                    <button class="btn btn-danger button">Connexion</button>
-                </a>
-                <a href="{{ path('app_user_register') }}">
-                    <button class="btn btn-danger button">Inscription</button>
-                </a>
-            </div>
-        </div>
+            <a href="{{ path('app_home_home') }}"><img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}"
+                                                       alt="Logo YouFilm" class="logo"></a></div>
 
     {% endif %}
 
@@ -45,24 +74,32 @@
         </div>
     </div>
 
-    <div class="card-movie">
-        {% if app.user %}
+
+    {% if app.user %}
+        <div class="card-movie">
             {% for reaction in reactions %}
 
                 {% if reaction.userId.id == app.user.id %}
-                <a href="{{ path('movie_show', { 'id': reaction.movieId.id }) }}" class="movie-list">
-                    <div class="m-3 me-2 ms-2">
-                        <img src="/images/{{ reaction.movieId.thumbnail }}" class="card-img-top movie-thumbnail" alt="miniature film">
-                    </div>
-                </a>
+                    <a href="{{ path('movie_show', { 'id': reaction.movieId.id }) }}" class="movie-list">
+                        <div class="m-3 me-2 ms-2">
+                            <img src="/images/{{ reaction.movieId.thumbnail }}" class="card-img-top movie-thumbnail"
+                                 alt="miniature film">
+                        </div>
+                    </a>
                 {% endif %}
-
             {% endfor %}
-        {% else %}
-            <h1>connecte toi</h1>
-        {% endif %}
-    </div>
+        </div>
+    {% else %}
 
+        <div class="d-flex align-items-center justify-content-center">
+            <h1 style="color: whitesmoke; margin-top: 2%">Connectez vous pour avoir accès aux favoris</h1></div>
+        <div class="d-flex align-items-center justify-content-center">
+            <a href="{{ path('app_user_login') }}">
+                <button class="btn btn-danger button">Connexion</button>
+            </a>
+        </div>
+
+    {% endif %}
 
 
 

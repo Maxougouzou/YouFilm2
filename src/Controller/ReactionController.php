@@ -33,9 +33,7 @@ class ReactionController extends AbstractController
         }
         $entityManager->flush();
 
-        return $this->redirectToRoute('movie_show', ['id' => $movie_id]);
+        return $this->redirectToRoute('movie_show', ['id' => $movie_id,]);
     }
-
-
 
 }

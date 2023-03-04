@@ -17,11 +17,46 @@
         <div class="header">
             <img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}" alt="Logo YouFilm" class="logo">
 
-            <div class="div-button-header-disconnect">
-                <a href="{{ path('app_user_logout') }}">
-                    <button class="btn btn-danger button-disconnect-header">Déconnexion</button>
+            <div class="dropdown user-menu-wrapper d-flex justify-content-center" style="background-color: red; border-radius: 5px; margin-right: 0.5rem">
+            <a type="button" data-bs-toggle="dropdown" data-bs-offset="0,5" aria-expanded="false" style="padding: 5px">
+                    <div style="width: 50px;" class="d-flex align-items-center justify-content-center">
+                        <i><img src="{{ asset('assets/picture/user.png') }}" alt="icone" style="height: 25px;"></i>
+                    </div>
                 </a>
+
+                <ul class="dropdown-menu dropdown-menu-end" style="background-color: #121212">
+                    <li class="dropdown-user-details">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <span style="font-size: 1rem; color: whitesmoke; margin-right: 3%">Connecté en : </span>
+                            <span style="font-size: 1rem; color: whitesmoke"> {{ user.username }}</span>
+                        </div>
+                    </li>
+
+                    <li style="margin-top: 10%">
+                        <a href="{{ path('app_favorite_movie') }}" class="dropdown-item user-action " target="_self" rel=""
+                           referrerpolicy="origin-when-cross-origin">
+                            <div class="d-flex justify-content-start align-items-center">
+                                <img src="{{ asset('assets/picture/etoile-pleine.png') }}" style="height: 22px;margin-right: 10%" class="d-flex align-items-center justify-content-start" alt="sign out icon">
+                                <span style="color: whitesmoke">Favoris</span></div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <hr style="color: whitesmoke">
+                    </li>
+                    <li>
+                        <a href="/logout" class="dropdown-item user-action " target="_self" rel=""
+                           referrerpolicy="origin-when-cross-origin">
+                            <div class="d-flex justify-content-center align-items-center">
+                            <img src="{{ asset('assets/picture/logout (2).png') }}" style="height: 15px;margin-right: 10%" class="d-flex align-items-center justify-content-start" alt="sign out icon">
+                             <span style="color: whitesmoke">Déconnexion</span></div>
+                        </a>
+                    </li>
+                </ul>
+
             </div>
+
+
         </div>
 
     {% else %} {# Utilisateur non-connecté #}
@@ -29,13 +64,37 @@
         <div class="header">
             <img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}" alt="Logo YouFilm" class="logo">
 
-            <button id="menu-button" style="color:white">Menu</button>
+            <div class="dropdown user-menu-wrapper d-flex justify-content-center" style="background-color: red; border-radius: 5px; margin-right: 0.5rem">
+                <a type="button" data-bs-toggle="dropdown" data-bs-offset="0,5" aria-expanded="false" style="padding: 5px">
+                    <div style="width: 50px;" class="d-flex align-items-center justify-content-center">
+                        <i><img src="{{ asset('assets/picture/user.png') }}" alt="icone" style="height: 25px;"></i>
+                    </div>
+                </a>
 
-            <div id="menu">
-                <ul>
-                    <li><a href="{{ path('app_user_login') }}">Connexion</a></li>
-                    <li><a href="{{ path('app_user_register') }}">Inscription</a></li>
+                <ul class="dropdown-menu dropdown-menu-end" style="background-color: #121212">
+                    <li style="margin-top: 10%">
+                        <a href="{{ path('app_user_login') }}" class="dropdown-item user-action " target="_self" rel=""
+                           referrerpolicy="origin-when-cross-origin">
+                            <div class="d-flex justify-content-start align-items-center">
+                                <img src="{{ asset('assets/picture/user.png') }}" style="height: 18px;margin-right: 10%" class="d-flex align-items-center justify-content-start" alt="sign out icon">
+                                <span style="color: whitesmoke">Connexion</span></div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <hr style="color: whitesmoke">
+                    </li>
+
+                    <li style="margin-top: 10%">
+                        <a href="{{ path('app_user_login') }}" class="dropdown-item user-action " target="_self" rel=""
+                           referrerpolicy="origin-when-cross-origin">
+                            <div class="d-flex justify-content-start align-items-center">
+                                <img src="{{ asset('assets/picture/register.png') }}" style="height: 25px;margin-right: 10%" class="d-flex align-items-center justify-content-start" alt="sign out icon">
+                                <span style="color: whitesmoke">Inscription</span></div>
+                        </a>
+                    </li>
                 </ul>
+
             </div>
         </div>
 
@@ -44,13 +103,16 @@
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="height: 30vh">
         <div class="carousel-inner h-100">
             <div class="carousel-item active" style="width: 100%; height: 100% ">
-                <img src="{{ asset('images/thumb-1920-1065042.jpg') }}" class="d-block w-100 h-100" alt="..." style="object-fit: cover">
+                <img src="{{ asset('images/thumb-1920-1065042.jpg') }}" class="d-block w-100 h-100" alt="..."
+                     style="object-fit: cover">
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('images/thumb-1920-550739.jpg') }}" class="d-block w-100 h-100" alt="..." style="object-fit: cover">
+                <img src="{{ asset('images/thumb-1920-550739.jpg') }}" class="d-block w-100 h-100" alt="..."
+                     style="object-fit: cover">
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('images/fdde1e13b1e50de26838e37f278be58a.jpeg') }}" class="d-block w-100 h-100" alt="..." style="object-fit: cover">
+                <img src="{{ asset('images/fdde1e13b1e50de26838e37f278be58a.jpeg') }}" class="d-block w-100 h-100"
+                     alt="..." style="object-fit: cover">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -69,6 +131,7 @@
     <div class="d-flex align-items-center justify-content-between div-more-film">
         <div class="category">
             <h3 class="recent-movie"> Film récents : </h3>
+            <div class="nav-name-line"></div>
         </div>
         <div class="more-film">
             <a href="{{ path('app_all_movie') }}">
@@ -91,6 +154,7 @@
 
     <div class="category">
         <h3> Catégories : </h3>
+        <div class="nav-name-line-category"></div>
     </div>
 
     <div class="d-flex align-items-center overflow-auto oui">

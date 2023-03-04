@@ -18,14 +18,14 @@ class CategoryController extends AbstractController
     {
 
         $movies = $entityManager->getRepository(Movie::class)->findAll();
+        $user= $this->getUser();
 
         return $this->render('category/category.html.twig', [
             'category' => $category,
-            'movies' =>$movies
+            'movies' =>$movies,
+            'user'=>$user
         ]);
 
     }
-
-
 
 }

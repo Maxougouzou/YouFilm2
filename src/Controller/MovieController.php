@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Entity\Movie;
 use App\Entity\Reaction;
-use App\Entity\User;
 use App\Repository\CommentRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,6 +31,7 @@ class MovieController extends AbstractController
                 'movie' => $movie,
                 'comments' => $comments,
                 'reaction'=>$reaction,
+                'user'=>$user
             ]);
         }
 
@@ -40,10 +40,12 @@ class MovieController extends AbstractController
         {
             $category = $entityManager->getRepository(Category::class)->findAll();
             $movies = $entityManager->getRepository(Movie::class)->findAll();
+            $user = $this->getUser();
 
         return $this->render('movie/allmovie.html.twig', [
             'category' => $category,
-            'movies' => $movies
+            'movies' => $movies,
+            'user' => $user,
         ]);
         }
 
@@ -53,11 +55,13 @@ class MovieController extends AbstractController
         $category = $entityManager->getRepository(Category::class)->findAll();
         $movies = $entityManager->getRepository(Movie::class)->findAll();
         $reactions = $entityManager->getRepository(Reaction::class)->findAll();
+        $user = $this->getUser();
 
         return $this->render('movie/favorite.html.twig', [
             'category' => $category,
             'movies' => $movies,
             'reactions' => $reactions,
+            'user' => $user
         ]);
     }
 

@@ -16,10 +16,12 @@ class HomeController extends AbstractController
 
         $movies = $entityManager->getRepository(Movie::class)->findAll();
         $category = $entityManager->getRepository(Category::class)->findAll();
+        $user = $this->getUser();
 
         return $this->render('home.html.twig', [
             'movies' => $movies,
             'category'=> $category,
+            'user'=>$user
         ]);
     }
 
