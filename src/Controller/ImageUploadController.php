@@ -29,7 +29,7 @@ class ImageUploadController extends AbstractController
             $image->setImage($fileName);
             $image->setCreationDate(new \DateTime());
 
-            //$entityManager = $entityManager->getManager();
+            //$entityManager = $ent     ityManager->getManager();
             $entityManager->persist($image);
             $entityManager->flush();
 

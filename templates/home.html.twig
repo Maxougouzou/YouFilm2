@@ -29,17 +29,13 @@
         <div class="header">
             <img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}" alt="Logo YouFilm" class="logo">
 
-            <div class="div-button-header-login-register d-flex">
-                <div class="div-button-header-login">
-                    <a href="{{ path('app_user_login') }}">
-                        <button class="btn btn-danger button-login-header">Connexion</button>
-                    </a>
-                </div>
-                <div class="div-button-header-register">
-                    <a href="{{ path('app_user_register') }}" class="ms-2">
-                        <button class="btn btn-danger button-login-header">Inscription</button>
-                    </a>
-                </div>
+            <button id="menu-button" style="color:white">Menu</button>
+
+            <div id="menu">
+                <ul>
+                    <li><a href="{{ path('app_user_login') }}">Connexion</a></li>
+                    <li><a href="{{ path('app_user_register') }}">Inscription</a></li>
+                </ul>
             </div>
         </div>
 
