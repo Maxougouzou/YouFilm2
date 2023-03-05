@@ -8,103 +8,124 @@
 
 {% block body %}
 
-    {% if app.user is not null %}
+    <div class="header">
+        <a href="{{ path('app_home_home') }}"><img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}"
+                                                   alt="Logo YouFilm" class="logo"></a>
 
-        <div class="header">
-            <a href="{{ path('app_home_home') }}"><img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}"
-                                                       alt="Logo YouFilm" class="logo"></a>
+        {# Utilisateur connecté #}
 
-            <div class="dropdown user-menu-wrapper d-flex justify-content-center" style="background-color: red; border-radius: 5px; margin-right: 0.5rem">
-                <a type="button" data-bs-toggle="dropdown" data-bs-offset="0,5" aria-expanded="false" style="padding: 5px">
-                    <div style="width: 50px;" class="d-flex align-items-center justify-content-center">
-                        <i><img src="{{ asset('assets/picture/user.png') }}" alt="icone" style="height: 25px;"></i>
+        {% if app.user is not null %}
+
+            <div class="bg-red dropmenu-div dropdown user-menu-wrapper d-flex justify-content-center">
+                <a type="button" class="dropmenu-div-a" data-bs-toggle="dropdown" data-bs-offset="0,5"
+                   aria-expanded="false">
+                    <div class="dropmenu-container d-flex align-items-center justify-content-center">
+                        <i><img src="{{ asset('assets/picture/user.png') }}" alt="icone"></i>
                     </div>
                 </a>
 
-                <ul class="dropdown-menu dropdown-menu-end" style="background-color: #121212">
+                <ul class="bg-color-1 dropdown-menu dropmenu-ul dropdown-menu-end">
                     <li class="dropdown-user-details">
-                        <div class="d-flex justify-content-center align-items-center">
-                            <span style="font-size: 1rem; color: whitesmoke; margin-right: 3%">Connecté en : </span>
-                            <span style="font-size: 1rem; color: whitesmoke"> {{ user.username }}</span>
+                        <div class="color-whitesmoke d-flex justify-content-center align-items-center">
+                            <span class="connected-in">Connecté en : </span>
+                            <span class="dropmenu-username"> {{ user.username }}</span>
                         </div>
                     </li>
 
-                    <li style="margin-top: 10%">
-                        <a href="{{ path('app_favorite_movie') }}" class="dropdown-item user-action " target="_self" rel=""
+                    <li class="dropmenu-li">
+                        <a href="{{ path('app_favorite_movie') }}" class="dropdown-item user-action " target="_self"
                            referrerpolicy="origin-when-cross-origin">
                             <div class="d-flex justify-content-start align-items-center">
-                                <img src="{{ asset('assets/picture/etoile-pleine.png') }}" style="height: 22px;margin-right: 10%" class="d-flex align-items-center justify-content-start" alt="sign out icon">
-                                <span style="color: whitesmoke">Favoris</span></div>
+                                <img src="{{ asset('assets/picture/etoile-pleine.png') }}"
+                                     class="dropmenu-icon-favorite d-flex align-items-center justify-content-start"
+                                     alt="Favorite icon">
+                                <span class="color-whitesmoke">Favoris</span></div>
                         </a>
                     </li>
 
-                    <li style="margin-top: 10%">
-                        <a href="/" class="dropdown-item user-action " target="_self" rel=""
+                    <li class="dropmenu-li">
+                        <a href="/" class="dropdown-item user-action " target="_self"
                            referrerpolicy="origin-when-cross-origin">
                             <div class="d-flex justify-content-start align-items-center">
-                                <img src="{{ asset('assets/picture/home.png') }}" style="height: 18px;margin-right: 10%"
-                                     class="d-flex align-items-center justify-content-start" alt="sign out icon">
-                                <span style="color: whitesmoke">Home</span></div>
+                                <img src="{{ asset('assets/picture/home.png') }}"
+                                     class="dropmenu-icon-home d-flex align-items-center justify-content-start"
+                                     alt="Home icon">
+                                <span class="color-whitesmoke">Home</span></div>
+                        </a>
+                    </li>
+
+                    <li class="dropmenu-li">
+                        <a href="{{ path('app_account') }}" class="dropdown-item user-action " target="_self"
+                           referrerpolicy="origin-when-cross-origin">
+                            <div class="d-flex justify-content-start align-items-center">
+                                <img src="{{ asset('assets/picture/user.png') }}"
+                                     class="dropmenu-icon-home d-flex align-items-center justify-content-start"
+                                     alt="user icon">
+                                <span class="color-whitesmoke">Compte</span></div>
                         </a>
                     </li>
 
                     <li>
-                        <hr style="color: whitesmoke">
+                        <hr class="color-whitesmoke">
                     </li>
                     <li>
-                        <a href="/logout" class="dropdown-item user-action " target="_self" rel=""
+                        <a href="/logout" class="dropdown-item user-action " target="_self"
                            referrerpolicy="origin-when-cross-origin">
                             <div class="d-flex justify-content-center align-items-center">
-                                <img src="{{ asset('assets/picture/logout (2).png') }}" style="height: 15px;margin-right: 10%" class="d-flex align-items-center justify-content-start" alt="sign out icon">
-                                <span style="color: whitesmoke">Déconnexion</span></div>
+                                <img src="{{ asset('assets/picture/logout (2).png') }}"
+                                     class="dropmenu-icon-signout d-flex align-items-center justify-content-start"
+                                     alt="sign out icon">
+                                <span class="color-whitesmoke">Déconnexion</span></div>
                         </a>
                     </li>
                 </ul>
 
             </div>
-        </div>
 
-    {% else %} {# Utilisateur non-connecté #}
+        {% else %} {# Utilisateur non-connecté #}
 
-        <div class="header">
-            <a href="{{ path('app_home_home') }}"><img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}" alt="Logo YouFilm" class="logo"></a>
 
-            <div class="dropdown user-menu-wrapper d-flex justify-content-center" style="background-color: red; border-radius: 5px; margin-right: 0.5rem">
-                <a type="button" data-bs-toggle="dropdown" data-bs-offset="0,5" aria-expanded="false" style="padding: 5px">
-                    <div style="width: 50px;" class="d-flex align-items-center justify-content-center">
-                        <i><img src="{{ asset('assets/picture/user.png') }}" alt="icone" style="height: 25px;"></i>
+            <div class="bg-red dropmenu-div dropdown user-menu-wrapper d-flex justify-content-center">
+                <a type="button" class="dropmenu-div-a" data-bs-toggle="dropdown" data-bs-offset="0,5"
+                   aria-expanded="false">
+                    <div class="dropmenu-container d-flex align-items-center justify-content-center">
+                        <i><img src="{{ asset('assets/picture/user.png') }}" alt="icone"></i>
                     </div>
                 </a>
 
-                <ul class="dropdown-menu dropdown-menu-end" style="background-color: #121212">
-                    <li style="margin-top: 10%">
+                <ul class="bg-color-1 dropdown-menu dropmenu-ul dropdown-menu-end">
+                    <li class="dropmenu-li">
                         <a href="{{ path('app_user_login') }}" class="dropdown-item user-action " target="_self" rel=""
                            referrerpolicy="origin-when-cross-origin">
                             <div class="d-flex justify-content-start align-items-center">
-                                <img src="{{ asset('assets/picture/user.png') }}" style="height: 18px;margin-right: 10%" class="d-flex align-items-center justify-content-start" alt="sign out icon">
-                                <span style="color: whitesmoke">Connexion</span></div>
+                                <img src="{{ asset('assets/picture/user.png') }}"
+                                     class="dropmenu-icon-user align-items-center justify-content-start"
+                                     alt="User icon">
+                                <span class="color-whitesmoke">Connexion</span></div>
                         </a>
                     </li>
 
                     <li>
-                        <hr style="color: whitesmoke">
+                        <hr class="color-whitesmoke">
                     </li>
 
-                    <li style="margin-top: 10%">
+                    <li class="dropmenu-li">
                         <a href="{{ path('app_user_login') }}" class="dropdown-item user-action " target="_self" rel=""
                            referrerpolicy="origin-when-cross-origin">
                             <div class="d-flex justify-content-start align-items-center">
-                                <img src="{{ asset('assets/picture/register.png') }}" style="height: 25px;margin-right: 10%" class="d-flex align-items-center justify-content-start" alt="sign out icon">
-                                <span style="color: whitesmoke">Inscription</span></div>
+                                <img src="{{ asset('assets/picture/register.png') }}"
+                                     class="dropmenu-icon-signin d-flex align-items-center justify-content-start"
+                                     alt="Sign in icon">
+                                <span class="color-whitesmoke">Inscription</span></div>
                         </a>
                     </li>
                 </ul>
 
             </div>
-        </div>
 
-    {% endif %}
+        {% endif %}
 
+    </div>
     <div class="div-header">
         <img src="{{ asset('assets/picture/header.jpg') }}" class="div-header-image" alt="image">
         <div class="div-header-content">

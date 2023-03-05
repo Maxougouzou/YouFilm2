@@ -25,7 +25,7 @@
                     </div>
                 </a>
 
-                <ul class="bg-color-1 dropdown-menu dropdown-menu-end">
+                <ul class="bg-color-1 dropmenu-ul dropdown-menu dropdown-menu-end">
                     <li class="dropdown-user-details">
                         <div class="color-whitesmoke d-flex justify-content-center align-items-center">
                             <span class="connected-in">Connecté en : </span>
@@ -67,7 +67,6 @@
                         </a>
                     </li>
                 </ul>
-
             </div>
 
         {% else %} {# Utilisateur non-connecté #}
@@ -81,7 +80,7 @@
                     </div>
                 </a>
 
-                <ul class="bg-color-1 dropdown-menu dropdown-menu-end">
+                <ul class="bg-color-1 dropdown-menu dropmenu-ul dropdown-menu-end">
                     <li class="dropmenu-li">
                         <a href="{{ path('app_user_login') }}" class="dropdown-item user-action " target="_self" rel=""
                            referrerpolicy="origin-when-cross-origin">
