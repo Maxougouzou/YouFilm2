@@ -93,6 +93,9 @@
 
 /* fin header */
 
+.div-movie{
+    height: 35rem;
+}
 
 .movie-title{
     text-align: start;
@@ -134,10 +137,15 @@
 
 .div-gauche{
     padding-left: 5%;
+    width: 50%;
 }
 
 .movie-category-name{
     margin-bottom: 0;
+}
+
+.div-video{
+    width: 60%;
 }
 
 /* Commentaires */
@@ -243,6 +251,10 @@
         border-radius: 0;
         color: whitesmoke;
         margin-left: 0.5rem;
+}
+
+.favorite-unconnected-user-text{
+    margin-top: 2%;
 }
 
 .button-header{

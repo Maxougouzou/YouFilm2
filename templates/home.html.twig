@@ -114,19 +114,17 @@
 
     </div>
 
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="height: 30vh">
+    {# Carousel #}
+    <div id="carouselExampleControls" class="big-div-carousel carousel slide" data-bs-ride="carousel" >
         <div class="carousel-inner h-100">
-            <div class="carousel-item active" style="width: 100%; height: 100% ">
-                <img src="{{ asset('images/thumb-1920-1065042.jpg') }}" class="d-block w-100 h-100" alt="..."
-                     style="object-fit: cover">
+            <div class="full-size carousel-item active">
+                <img src="{{ asset('images/thumb-1920-1065042.jpg') }}" class="img-carousel d-block w-100 h-100" alt="Bannière film">
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('images/thumb-1920-550739.jpg') }}" class="d-block w-100 h-100" alt="..."
-                     style="object-fit: cover">
+                <img src="{{ asset('images/thumb-1920-550739.jpg') }}" class="img-carousel d-block w-100 h-100" alt="Bannière film">
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('images/fdde1e13b1e50de26838e37f278be58a.jpeg') }}" class="d-block w-100 h-100"
-                     alt="..." style="object-fit: cover">
+                <img src="{{ asset('images/fdde1e13b1e50de26838e37f278be58a.jpeg') }}" class="img-carousel d-block w-100 h-100" alt="Bannière film">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -141,6 +139,7 @@
         </button>
     </div>
 
+    {# Fin carousel #}
 
     <div class="d-flex align-items-center justify-content-between div-more-film">
         <div class="category">
@@ -171,7 +170,7 @@
         <div class="nav-name-line-category"></div>
     </div>
 
-    <div class="d-flex align-items-center overflow-auto oui">
+    <div class="d-flex align-items-center justify-content-center  oui">
         <div class="card-group flex-nowrap">
             {% for categorie in category %}
                 <a href="{{ path('app_category', { 'name': categorie.name }) }}">

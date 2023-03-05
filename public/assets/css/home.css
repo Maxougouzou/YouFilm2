@@ -93,11 +93,28 @@
 
 /* fin header */
 
+/* Carousel */
+
+.big-div-carousel{
+    height: 30vh;
+}
+
+.full-size{
+    width: 100%;
+    height: 100%;
+}
+
+.img-carousel{
+    object-fit: cover;
+}
+
 .button{
     color: whitesmoke;
     border-radius: 0;
     margin-left: 0.5rem;
 }
+
+/* Body */
 
 .card-movie{
     display: flex;
@@ -137,12 +154,6 @@
 
 a{
     text-decoration: none;
-}
-
-.video{
-    display: flex;
-    text-align: center;
-    justify-content: center;
 }
 
 h1{
@@ -233,7 +244,7 @@ h3 {
     border: none;
 }
 
-.btn-cancel {
+.btn-cancel{
     font-weight: 400;
     width: 320px;
     height: 60px;
@@ -247,23 +258,13 @@ h3 {
     align-items: center;
     justify-content: center;
 }
-.bg-black{
-    background-color: #121212;
-}
+
 .bg-red{
     background-color: red;
     border-radius: 5px;
     margin-right: 0.5rem;
 }
-.connected-style1{
-    font-size: 1rem;
-    color: whitesmoke;
-    margin-right: 3%;
-}
-.connected-style2{
-    font-size: 1rem;
-    color: whitesmoke;
-}
+
 .color-whitesmoke{
     color:whitesmoke;
 }

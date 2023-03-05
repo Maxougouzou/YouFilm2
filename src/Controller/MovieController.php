@@ -49,7 +49,7 @@ class MovieController extends AbstractController
         ]);
         }
 
-    #[Route('/favoritefilm',name:'app_favorite_movie')]
+    #[Route('/favoritemovies',name:'app_favorite_movie')]
     public function favoriteMovie(EntityManagerInterface $entityManager):Response
     {
         $category = $entityManager->getRepository(Category::class)->findAll();
