@@ -1,4 +1,4 @@
-/* header */
+/* Header */
 .header {
     background-color: #121212;
     display: flex;
@@ -9,42 +9,85 @@
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 }
 
-.logo{
-    height:50px;
+.logo {
+    height: 50px;
     justify-content: center;
     margin-left: 1rem;
 }
 
-.div-button-header-disconnect{
+.button-header{
     margin-right: 1rem;
 }
 
-.button-disconnect-header{
+/* Dropmenu Header */
+
+.dropmenu-div{
+    border-radius: 5px;
+    margin-right: 0.5rem
+}
+
+.dropmenu-div-a{
+    padding: 5px;
+}
+
+.dropmenu-container{
+    width: 50px;
+}
+
+.dropmenu-container img{
+    height: 25px;
+}
+
+.bg-color-1{
+    background-color: #121212;
+}
+
+.bg-red{
+    background-color: red;
+}
+.color-whitesmoke{
     color: whitesmoke;
-    border-radius: 0;
-    margin-left: 0.5rem;
 }
 
-.div-button-header-login{
-    margin-right: 1rem;
-    width: 50%;
+.connected-in{
+    margin-right: 3%;
+    font-size: 100%;
 }
 
-.div-button-header-register{
-    margin-right: 0.5rem;
-    margin-left: 0;
-    width: 50%;
+.dropmenu-username{
+    font-size: 100%;
 }
 
-.div-button-header-login-register{
-    width: 16%;
-    padding:0.5%;
+.dropmenu-li{
+    margin-top: 10%;
 }
 
-.button-login-header{
-    color: whitesmoke;
-    border-radius: 0;
+.dropmenu-icon-favorite{
+    height: 22px;
+    margin-right: 10%;
 }
+
+.dropmenu-icon-home{
+    height: 18px;
+    margin-right: 10%;
+}
+
+.dropmenu-icon-signout{
+    height: 15px;
+    margin-right: 10%;
+}
+
+.dropmenu-icon-user{
+    height: 18px;
+    margin-right: 10%;
+}
+
+.dropmenu-icon-signin{
+    height: 25px;
+    margin-right: 10%;
+}
+
+/* fin header */
 
 /* fin header */
 
@@ -205,7 +248,7 @@ h3 {
 .bg-black{
     background-color: #121212;
 }
-bg-red{
+.bg-red{
     background-color: red;
     border-radius: 5px;
     margin-right: 0.5rem;
