@@ -17,18 +17,18 @@
         <div class="header">
             <img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}" alt="Logo YouFilm" class="logo">
 
-            <div class="dropdown user-menu-wrapper d-flex justify-content-center" style="background-color: red; border-radius: 5px; margin-right: 0.5rem">
+            <div class="dropdown user-menu-wrapper d-flex justify-content-center bg-red">
             <a type="button" data-bs-toggle="dropdown" data-bs-offset="0,5" aria-expanded="false" style="padding: 5px">
                     <div style="width: 50px;" class="d-flex align-items-center justify-content-center">
                         <i><img src="{{ asset('assets/picture/user.png') }}" alt="icone" style="height: 25px;"></i>
                     </div>
                 </a>
 
-                <ul class="dropdown-menu dropdown-menu-end" style="background-color: #121212">
+                <ul class="dropdown-menu dropdown-menu-end bg-black">
                     <li class="dropdown-user-details">
                         <div class="d-flex justify-content-center align-items-center">
-                            <span style="font-size: 1rem; color: whitesmoke; margin-right: 3%">Connecté en : </span>
-                            <span style="font-size: 1rem; color: whitesmoke"> {{ user.username }}</span>
+                            <span class="connected-style1">Connecté en : </span>
+                            <span class="connected-style2"> {{ user.username }}</span>
                         </div>
                     </li>
 
@@ -37,19 +37,19 @@
                            referrerpolicy="origin-when-cross-origin">
                             <div class="d-flex justify-content-start align-items-center">
                                 <img src="{{ asset('assets/picture/etoile-pleine.png') }}" style="height: 22px;margin-right: 10%" class="d-flex align-items-center justify-content-start" alt="sign out icon">
-                                <span style="color: whitesmoke">Favoris</span></div>
+                                <span class="color-whitesmoke">Favoris</span></div>
                         </a>
                     </li>
 
                     <li>
-                        <hr style="color: whitesmoke">
+                        <hr class="color-whitesmoke">
                     </li>
                     <li>
                         <a href="/logout" class="dropdown-item user-action " target="_self" rel=""
                            referrerpolicy="origin-when-cross-origin">
                             <div class="d-flex justify-content-center align-items-center">
                             <img src="{{ asset('assets/picture/logout (2).png') }}" style="height: 15px;margin-right: 10%" class="d-flex align-items-center justify-content-start" alt="sign out icon">
-                             <span style="color: whitesmoke">Déconnexion</span></div>
+                             <span class="color-whitesmoke">Déconnexion</span></div>
                         </a>
                     </li>
                 </ul>
@@ -64,25 +64,25 @@
         <div class="header">
             <img src="{{ asset('/assets/picture/Logo YouFilm3.png') }}" alt="Logo YouFilm" class="logo">
 
-            <div class="dropdown user-menu-wrapper d-flex justify-content-center" style="background-color: red; border-radius: 5px; margin-right: 0.5rem">
+            <div class="dropdown user-menu-wrapper d-flex justify-content-center bg-red">
                 <a type="button" data-bs-toggle="dropdown" data-bs-offset="0,5" aria-expanded="false" style="padding: 5px">
                     <div style="width: 50px;" class="d-flex align-items-center justify-content-center">
                         <i><img src="{{ asset('assets/picture/user.png') }}" alt="icone" style="height: 25px;"></i>
                     </div>
                 </a>
 
-                <ul class="dropdown-menu dropdown-menu-end" style="background-color: #121212">
+                <ul class="dropdown-menu dropdown-menu-end bg-black">
                     <li style="margin-top: 10%">
                         <a href="{{ path('app_user_login') }}" class="dropdown-item user-action " target="_self" rel=""
                            referrerpolicy="origin-when-cross-origin">
                             <div class="d-flex justify-content-start align-items-center">
                                 <img src="{{ asset('assets/picture/user.png') }}" style="height: 18px;margin-right: 10%" class="d-flex align-items-center justify-content-start" alt="sign out icon">
-                                <span style="color: whitesmoke">Connexion</span></div>
+                                <span class="color-whitesmoke">Connexion</span></div>
                         </a>
                     </li>
 
                     <li>
-                        <hr style="color: whitesmoke">
+                        <hr class="color-whitesmoke">
                     </li>
 
                     <li style="margin-top: 10%">
@@ -90,7 +90,7 @@
                            referrerpolicy="origin-when-cross-origin">
                             <div class="d-flex justify-content-start align-items-center">
                                 <img src="{{ asset('assets/picture/register.png') }}" style="height: 25px;margin-right: 10%" class="d-flex align-items-center justify-content-start" alt="sign out icon">
-                                <span style="color: whitesmoke">Inscription</span></div>
+                                <span class="color-whitesmoke">Inscription</span></div>
                         </a>
                     </li>
                 </ul>
