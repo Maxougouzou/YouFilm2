@@ -52,12 +52,10 @@ class CommentController extends AbstractController
             throw new \Exception('Comment is not associated with any movie.');
         }
 
-        $movieId = $movie->getId(); // Récupère l'identifiant du film associé au commentaire
+        $movieId = $movie->getId();
 
         $entityManager->remove($comment);
         $entityManager->flush();
-
-        $this->addFlash('success', 'Comment deleted successfully');
 
         return $this->redirectToRoute('movie_show', ['id' => $movieId]);
     }
@@ -74,8 +72,6 @@ class CommentController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            $this->addFlash('success', 'Comment edited successfully');
-
             return $this->redirectToRoute('movie_show', ['id' => $comment->getMovieId()->getId()]);
         }
 
@@ -86,12 +82,6 @@ class CommentController extends AbstractController
             'user' => $user
         ]);
     }
-
-
-
-
-
-
 
 
 
