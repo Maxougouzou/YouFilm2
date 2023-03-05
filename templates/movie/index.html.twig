@@ -71,7 +71,7 @@
                     <li>
                         <a href="/logout" class="dropdown-item user-action " target="_self"
                            referrerpolicy="origin-when-cross-origin">
-                            <div class="d-flex justify-content-center align-items-center">
+                            <div class="d-flex justify-content-start align-items-center">
                                 <img src="{{ asset('assets/picture/logout (2).png') }}"
                                      class="dropmenu-icon-signout d-flex align-items-center justify-content-start"
                                      alt="sign out icon">
@@ -95,7 +95,7 @@
 
                 <ul class="bg-color-1 dropdown-menu dropmenu-ul dropdown-menu-end">
                     <li class="dropmenu-li">
-                        <a href="{{ path('app_user_login') }}" class="dropdown-item user-action " target="_self" rel=""
+                        <a href="{{ path('app_user_login') }}" class="dropdown-item user-action " target="_self"
                            referrerpolicy="origin-when-cross-origin">
                             <div class="d-flex justify-content-start align-items-center">
                                 <img src="{{ asset('assets/picture/user.png') }}"
@@ -110,7 +110,7 @@
                     </li>
 
                     <li class="dropmenu-li">
-                        <a href="{{ path('app_user_login') }}" class="dropdown-item user-action " target="_self" rel=""
+                        <a href="{{ path('app_user_login') }}" class="dropdown-item user-action " target="_self"
                            referrerpolicy="origin-when-cross-origin">
                             <div class="d-flex justify-content-start align-items-center">
                                 <img src="{{ asset('assets/picture/register.png') }}"
@@ -161,7 +161,6 @@
                 <video controls width="80%" class="video-player">
                     <source src="/images/{{ movie.video }}" type="video/mp4">
                     <track label="Français" kind="subtitles" srclang="fr"  src="/images/{{ movie.subtitle }}">
-                </video>
                 </video>
             </div>
         </div>

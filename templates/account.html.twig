@@ -20,7 +20,8 @@
 
 <div class="grid">
 
-    {% if app.user is not null %}
+    {% if app.user is not null %} {# User connecté #}
+
     <div class="d-flex justify-content-center align-items-center">
         <h4 class="color-whitesmoke">Bienvenue, {{ user.username }}!</h4>
     </div>
@@ -73,7 +74,7 @@
 
 </div>
 
-    {% else %}
+    {% else %} {# User non-connecté #}
 
         <h1>Vous n'avez pas accès à cette page.</h1>
 
