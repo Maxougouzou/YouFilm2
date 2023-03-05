@@ -22,3 +22,6 @@ Youfilm est un site de streaming de films et vidéos.
 /uploadimage permet d'ajouter un film à la base de données
 
 ### Bannis
+Impossible de commenter un film
+
+Impossible d'ajouter un film en favoris
