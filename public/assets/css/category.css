@@ -19,6 +19,74 @@
     margin-right: 1rem;
 }
 
+/* Dropmenu Header */
+
+.dropmenu-div{
+    border-radius: 5px;
+    margin-right: 0.5rem
+}
+
+.dropmenu-div-a{
+    padding: 5px;
+}
+
+.dropmenu-container{
+    width: 50px;
+}
+
+.dropmenu-container img{
+    height: 25px;
+}
+
+.bg-color-1{
+    background-color: #121212;
+}
+
+.bg-red{
+    background-color: red;
+}
+.color-whitesmoke{
+    color: whitesmoke;
+}
+
+.connected-in{
+    margin-right: 3%;
+    font-size: 100%;
+}
+
+.dropmenu-username{
+    font-size: 100%;
+}
+
+.dropmenu-li{
+    margin-top: 10%;
+}
+
+.dropmenu-icon-favorite{
+    height: 22px;
+    margin-right: 10%;
+}
+
+.dropmenu-icon-home{
+    height: 18px;
+    margin-right: 10%;
+}
+
+.dropmenu-icon-signout{
+    height: 15px;
+    margin-right: 10%;
+}
+
+.dropmenu-icon-user{
+    height: 18px;
+    margin-right: 10%;
+}
+
+.dropmenu-icon-signin{
+    height: 25px;
+    margin-right: 10%;
+}
+
 /* fin header */
 
 .div-header{
