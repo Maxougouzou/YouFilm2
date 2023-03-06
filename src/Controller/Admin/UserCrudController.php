@@ -30,7 +30,8 @@ class UserCrudController extends AbstractCrudController
             TextField::new('username'),
             EmailField::new('email'),
             BooleanField::new('isBanned')->onlyOnIndex(),
-            CollectionField::new('roles')
+            CollectionField::new('roles'),
+
         ];
     }
    public function configureActions(Actions $actions): Actions
@@ -49,7 +50,8 @@ class UserCrudController extends AbstractCrudController
 
         return $actions
             ->add(Crud::PAGE_INDEX, $banUser)
-            ->add(Crud::PAGE_INDEX, $unbanUser);
+            ->add(Crud::PAGE_INDEX, $unbanUser)
+            ->remove(Crud::PAGE_INDEX, Action::NEW);
     }
 
     public function banUser(AdminContext $context, EntityManagerInterface $entityManager)
