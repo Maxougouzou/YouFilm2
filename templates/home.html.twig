@@ -116,7 +116,7 @@
 
     {# Carousel #}
     <div id="carouselExampleControls" class="big-div-carousel carousel slide" data-bs-ride="carousel" >
-        <div class="carousel-inner h-100">
+        <div class="carousel-inner w-100 h-100">
             <div class="full-size carousel-item active">
                 <img src="{{ asset('images/thumb-1920-1065042.jpg') }}" class="img-carousel d-block w-100 h-100" alt="Bannière film">
             </div>
@@ -170,7 +170,7 @@
         <div class="nav-name-line-category"></div>
     </div>
 
-    <div class="d-flex align-items-center justify-content-center  oui">
+    <div class="d-flex align-items-center justify-content-center slider">
         <div class="card-group flex-nowrap">
             {% for categorie in category %}
                 <a href="{{ path('app_category', { 'name': categorie.name }) }}">

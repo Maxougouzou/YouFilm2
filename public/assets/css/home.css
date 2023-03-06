@@ -156,6 +156,11 @@ a{
     text-decoration: none;
 }
 
+.slider{
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
 h1{
     margin: 0;
 }

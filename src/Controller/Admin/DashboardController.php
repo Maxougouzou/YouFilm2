@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Category;
 use App\Entity\Comment;
 use App\Entity\Movie;
 use App\Entity\User;
@@ -35,5 +36,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('User', 'fas fa-user', User::class);
         yield MenuItem::linkToCrud('Movie', 'fas fa-list', Movie::class);
         yield MenuItem::linkToCrud('Comment', 'fas fa-comments', Comment::class);
+        yield MenuItem::linkToCrud('Category', 'fas fa-play', Category::class);
     }
 }
