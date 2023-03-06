@@ -131,19 +131,29 @@
         <div class="div-gauche">
             <div class="d-flex align-items-center div-title-movie">
                 <h2 class="movie-title">{{ movie.title }}</h2>
-                <a href="{{ path('app_category', {'name': movie.category.name,}) }}"><button class="btn btn-danger button-category"><p
-                            class="movie-category-name">{{ movie.category.name }}</p></button></a>
+                <a href="{{ path('app_category', {'name': movie.category.name,}) }}">
+                    <button class="btn btn-danger button-category"><p
+                                class="movie-category-name">{{ movie.category.name }}</p></button>
+                </a>
 
                 {% if app.user is not null %}
 
-                    {% if app.user and reaction is null %}
-                        <a href="{{ path('movies_favorite', {'id': movie.id}) }}">
-                            <img src="{{ asset('/assets/picture/etoile.png') }}" alt="étoile favori" class="favorite-movie-icon">
-                        </a>
-                    {% elseif reaction.getType() == 'favorite' %}
-                        <a href="{{ path('movies_favorite', {'id': movie.id}) }}">
-                            <img src="{{ asset('/assets/picture/etoile-pleine.png') }}" alt="étoile favori pleine" class="favorite-movie-icon">
-                        </a>
+                    {% if app.user.isBanned == false %}
+
+                        {% if app.user and reaction is null %}
+                            <a href="{{ path('movies_favorite', {'id': movie.id}) }}">
+                                <img src="{{ asset('/assets/picture/etoile.png') }}" alt="étoile favori"
+                                     class="favorite-movie-icon">
+                            </a>
+                        {% elseif reaction.getType() == 'favorite' %}
+                            <a href="{{ path('movies_favorite', {'id': movie.id}) }}">
+                                <img src="{{ asset('/assets/picture/etoile-pleine.png') }}" alt="étoile favori pleine"
+                                     class="favorite-movie-icon">
+                            </a>
+                        {% endif %}
+
+                    {% else %}
+
                     {% endif %}
 
                 {% else %}
@@ -160,7 +170,7 @@
             <div class="video">
                 <video controls width="80%" class="video-player">
                     <source src="/images/{{ movie.video }}" type="video/mp4">
-                    <track label="Français" kind="subtitles" srclang="fr"  src="/images/{{ movie.subtitle }}">
+                    <track label="Français" kind="subtitles" srclang="fr" src="/images/{{ movie.subtitle }}">
                 </video>
             </div>
         </div>
@@ -201,10 +211,14 @@
                             <div class="d-flex align-items-center">
                                 <h5 class="card-comment-username">{{ comment.userId.username }}</h5>
                                 <div class="icon-comment">
-                                {% if comment.userId == app.user %}
-                                    <a href="{{ path('app_delete_comment',{'id': comment.id }) }}"><img src="{{ asset('/assets/picture/supprimer.png') }}" alt="delete icon" class="delete-comment"></a>
-                                    <a href="{{ path('app_edit_comment',{'id':comment.id}) }}"><img src="{{ asset('/assets/picture/editer(1).png') }}" alt="delete icon" class="edit-comment"></a>
-                                {% endif %}
+                                    {% if comment.userId == app.user %}
+                                        <a href="{{ path('app_delete_comment',{'id': comment.id }) }}"><img
+                                                    src="{{ asset('/assets/picture/supprimer.png') }}" alt="delete icon"
+                                                    class="delete-comment"></a>
+                                        <a href="{{ path('app_edit_comment',{'id':comment.id}) }}"><img
+                                                    src="{{ asset('/assets/picture/editer(1).png') }}" alt="delete icon"
+                                                    class="edit-comment"></a>
+                                    {% endif %}
                                 </div>
                             </div>
                             <p class="card-text">{{ comment.content }}</p>
